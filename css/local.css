@@ -1,0 +1,57 @@
+html{
+	height: 100%;
+	overflow: hidden;
+}
+body{
+	height: 100%;
+}
+.swiper-slide>img{
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+
+.swiper-container{
+	margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: 10px;
+    height: 265px;
+}
+
+.notice-left{
+	/*border: 1px solid #CCC;*/
+	float: left;
+	height: 30px;
+	width: 85px
+}
+
+.notice-middle{
+	float: left;
+	height: 30px;
+	font-weight: 600
+}
+
+.notice-right{
+	height: 30px;
+	float: left;
+	padding-left: 10px;
+	color: darkgray;
+	font-size: 14px;
+}
+
+.weui-panel__hd{
+	background-color: #efeff4;
+	font-size: initial;
+	font-weight: 600;
+}
+
+.weui-cells{
+	margin-top: 0px;
+}
+.submit-button{
+	margin-top: 120px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
