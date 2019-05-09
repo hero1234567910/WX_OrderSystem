@@ -1,0 +1,141 @@
+.orderFood-hd-left{
+	float: left;
+	height: 30px;
+	width: 85px;
+	flex-shrink: 0;
+	margin-left: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.orderFood-hd-middle{
+	float: left;
+	height: 30px;
+	font-weight: 600;
+	flex: 1;
+	margin-left:10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.orderFood-hd{
+	display: flex; /*设为伸缩容器*/
+	border-bottom: 1px solid #ececec;
+}
+
+.orderFood-m{
+	display: flex; /*设为伸缩容器*/
+	height: 100%;
+}
+
+.orderFood-m-left{
+	flex-shrink: 0;
+	width: 66px;
+	background-color: #efeff4;
+}
+
+.orderFood-m-right{
+	flex: 1;
+}
+.nav {
+background-color: #F5F5DC;
+}
+
+.nav ul {
+margin: 0;padding: 0;
+list-style-type: none; 
+line-height: 3em;
+}
+
+.nav a {
+display: block; 
+/*width: 10em;*/ 
+text-align: center;
+text-decoration: none;
+background-color: #efeff4;
+line-height: 55px;
+height: 55px;
+}
+
+.nav a:hover {
+background-color: hsla(0,0%,100%,.95)
+}
+
+.orderFood-item{
+	width: 100%;
+	/*height: 100px;*/
+	display: flex; /*设为伸缩容器*/
+	padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+.orderFood-item-left{
+	flex-shrink: 0;
+	width: 120px;
+}
+.orderFood-item-right{
+	flex: 1;
+	position: relative;
+}
+.orderFood-item-h{
+	padding-left: 10px;
+}
+.orderFood-item-d{
+	position: absolute;
+    bottom: 0px;
+    height: 40px;
+    width: 100%;
+    display: flex;
+}
+.orderFood-item-d-left{
+	flex-shrink: 0;
+	width: 40px;
+	text-align: center;
+    line-height: 40px;
+    color: red;
+}
+.orderFood-item-d-right{
+	flex: 1;
+	padding-right: 10px;
+	padding-top: 8px;
+}
+.add-shopCar{
+	width: 24px;
+    height: 24px;
+    background: url(../../../img/加号.svg) 100% no-repeat;
+    float: right;
+}
+.pic-food-cart-num {
+    margin: 2px 8px 0 8px;
+}
+.pic-food-cart-num, .text-food-cart-num {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+   background-color: #F43530;
+    color: #333;
+    text-align: center;
+    float:right;
+}
+.add-shopCar-d{
+	width: 24px;
+    height: 24px;
+    background: url(../../../img/减号.svg) 100% no-repeat;
+    float: right;	
+}
+.orderFood-d{
+	display: flex;
+	height: 80px;
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+    background-color: #ececec;
+}
+.orderFood-d-left{
+	flex-shrink: 0;
+	width: 100px;
+	padding: 20px 20px;
+}
+.orderFood-d-right{
+	flex: 1;
+}
