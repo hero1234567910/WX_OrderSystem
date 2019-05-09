@@ -1,0 +1,41 @@
+.weui-panel__hd {
+	color: grey;
+	font-size: 20px;
+	background-color: #F5F5F5;
+}
+
+.weui-cell__ft{
+	font-size: 20px;
+}
+
+.weui-cell__bd{
+	font-size: 20px;
+}
+.weui-label{
+	font-size: 20px;
+}
+.weui-media-box__info__meta {
+    float: right;
+    padding-right: 1em;
+}
+.btn_bottom {
+	/* overflow: visible; */
+	float:right;
+    /* margin:inherit; */
+    width: 30%;
+	margin-left: 50%;
+}
+.page {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 4rem;
+}
+
+.weui-label1{
+	font-size: 20px;
+	color: #000000;
+}
+.weui-media-box__title {
+	font-size: 20px;
+}
