@@ -64,3 +64,8 @@ body{
 .weui-iframe{
 	overflow: hidden!important;
 }
+.p-location{
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

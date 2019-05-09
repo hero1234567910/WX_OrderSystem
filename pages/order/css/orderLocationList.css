@@ -1,0 +1,18 @@
+.loca-x{
+    width: 294px;
+}
+.loca-name{
+	float: left;
+}
+.loca-mobile{
+	float: right;
+}
+.add-ad{
+	height: 100px;
+	width: 100%;
+	position: absolute;
+    width: 100%;
+    bottom: 50px;
+    padding-left: auto;
+    text-align: center;
+}
