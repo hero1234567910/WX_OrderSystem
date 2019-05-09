@@ -32,7 +32,8 @@
     height: 4rem;
 }
 
-.weui-label1{
+label.weui-label1{
+	width: 30%;
 	font-size: 20px;
 	color: #000000;
 }
