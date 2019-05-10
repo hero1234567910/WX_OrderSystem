@@ -11,21 +11,20 @@
 	</head>
 	<body>
 		<div class="weui-panel__hd">地址列表</div>
-		<div class="weui-cells">
-		  <a class="weui-cell weui-cell_access" href="javascript:;">
+		<div class="weui-cells" id="vueConfig">
+		  <a class="weui-cell weui-cell_access" href="javascript:;" v-for="item in addressList" v-cloak>
 		    <div class="weui-cell__bd">
 		      <div class="loca-x">
-		      	<p class="p-location">黄土高坡良家市</p>
+		      	<p class="p-location">{{item.fullAddress}}</p>
 		      </div>
 		      <div class="loca-name">
-		      	<p>张文远</p>
+		      	<p>{{item.hosUserName}}</p>
 		      </div>
 		      <div class="loca-mobile">
-		      	<p>143243242</p>
+		      	<p>{{item.hosUserMobile}}</p>
 		      </div>
 		    </div>
-		    <div class="weui-cell__ft">
-		    </div>
+		    <div class="weui-cell__ft"></div>
 		  </a>
 		</div>
 		
@@ -34,8 +33,9 @@
 		</div>
 		<script src="../../lib/jquery-2.1.4.js"></script>
 		<script src="../../js/jquery-weui.min.js"></script>
-		<script src="js/address.js"></script>
+		<script src="../../js/vue.js"></script>
 		<script src="../../lib/fastclick.js"></script>
 		<script src="../../js/local.js"></script>
+		<script src="js/address.js"></script>
 	</body>
 </html>
