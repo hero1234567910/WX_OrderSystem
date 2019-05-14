@@ -58,6 +58,7 @@ function GetQueryString(name){
 function toMain(){
 	//获取菜品分类code
 	var code = $('#select1')[0].getAttribute('data-Values');
+	var meal = $('#select1')[0].getAttribute('value');
 	var date = $('#we-date').val();
 	if(code == null || code == undefined || code == '' || date == null || date == undefined || date == ''){
 		$.alert("请填写订餐时间", "警告");
@@ -65,6 +66,7 @@ function toMain(){
 	}
 	localStorage.setItem('goodsCode',code);
 	localStorage.setItem('orderDate',date);
+	localStorage.setItem('mealPoint',meal);
 	location.href="main.html";
 }
 

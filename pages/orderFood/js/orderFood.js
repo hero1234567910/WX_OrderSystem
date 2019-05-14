@@ -97,7 +97,7 @@ $('body').on('click','.add-shopCar',function(){
     var danjia = par.prev().children('.goods-price').text();//获取单价
 	  var a = $("#totalpriceshow").html();//获取当前所选总价
 	  $("#totalpriceshow").html((a * 1 + danjia * 1).toFixed(2));//计算当前所选总价
-	  console.log(orderItem);
+//	  console.log(orderItem);
 //	  var nm = $("#totalcountshow").html();//获取数量
 //	  $("#totalcountshow").html(nm*1+1);
 //	  jss();//改变按钮样式h
@@ -113,6 +113,22 @@ $('body').on('click','.add-shopCar-d',function(){
  	var danjia = $(this).parent().prev().children('.goods-price').text();//获取单价
     var a = $("#totalpriceshow").html();//获取当前所选总价
     $("#totalpriceshow").html((a * 1 - danjia * 1).toFixed(2));//计算当前所选总价
+   	var goodsGuid = $(this).parents('.orderFood-item-right').children('.orderFood-item-inp').val();
+   	if(n > 1){
+   		//直接将该商品数量加1
+    	for(var i=0;i<orderItem.length;i++){
+    		if(orderItem[i].goodsGuid == goodsGuid){
+    			orderItem[i].goodsCount = num;
+    		}
+    	}
+   	}else{
+   		//当数量等于1时移除该
+   		for(var i=0;i<orderItem.length;i++){
+    		if(orderItem[i].goodsGuid == goodsGuid){
+    			orderItem.splice(i,1);
+    		}
+    	}
+   	}
    
 //  var nm = $("#totalcountshow").html();//获取数量
 //  $("#totalcountshow").html(nm * 1 - 1);
@@ -126,11 +142,13 @@ $('body').on('click','.add-shopCar-d',function(){
 
 $('#toSubmit').click(function(){
 	//获取金额
-	var orderPrice = $('#totalpriceshow').val();
+	var orderPrice = $('#totalpriceshow').text();
+	console.log(orderPrice);
 	if(orderPrice == 0){
 		$.alert("请至少选择一个菜品", "警告");
+		return;
 	}
-	location.href = "../../order/orderSubmit.html";
+	localStorage.setItem('orderItem',JSON.stringify(orderItem));
+	window.top.location.href = "../../../../WX_OrderSystem/pages/order/orderSubmit.html";
 })
-
 

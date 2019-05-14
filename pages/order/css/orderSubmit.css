@@ -37,3 +37,12 @@ label.weui-label1{
 	font-size: 20px;
 	color: #000000;
 }
+.loca-x{
+    width: 294px;
+}
+.loca-name{
+	float: left;
+}
+.loca-mobile{
+	float: right;
+}

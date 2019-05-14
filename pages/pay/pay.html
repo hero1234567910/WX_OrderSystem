@@ -18,6 +18,11 @@
 		<script>
 			$().ready(function(){
 				$.toptip('下单成功，请在5分钟内完成支付', 3600000, 'success');
+				//吊起支付控件
+				
+				$.toast("正在支付中", 2000);
+				
+				location.href="../../../WX_OrderSystem/pages/notice/noticeSuccess.html"
 			});
 		</script>
 	</body>
