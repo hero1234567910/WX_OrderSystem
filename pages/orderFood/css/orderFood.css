@@ -21,6 +21,8 @@
 .orderFood-hd{
 	display: flex; /*设为伸缩容器*/
 	border-bottom: 1px solid #ececec;
+	/*position: absolute;
+    top: 0px;*/
 }
 
 .orderFood-m{
@@ -32,10 +34,14 @@
 	flex-shrink: 0;
 	width: 66px;
 	background-color: #efeff4;
+	overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .orderFood-m-right{
 	flex: 1;
+	overflow-y: auto;
+    overflow-x: hidden;
 }
 .nav {
 background-color: #F5F5DC;
@@ -55,6 +61,9 @@ text-decoration: none;
 background-color: #efeff4;
 line-height: 55px;
 height: 55px;
+/*position: relative;
+top: -92px;
+visibility: hidden;*/
 }
 
 .nav a:hover {
@@ -121,7 +130,8 @@ background-color: hsla(0,0%,100%,.95)
 	width: 24px;
     height: 24px;
     background: url(../../../img/减号.svg) 100% no-repeat;
-    float: right;	
+    float: right;
+    display: none;
 }
 .orderFood-d{
 	display: flex;
@@ -139,3 +149,20 @@ background-color: hsla(0,0%,100%,.95)
 .orderFood-d-right{
 	flex: 1;
 }
+.orderFood-m-right-pane{
+	background-color: #efeff4;
+    padding-left: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 23px;
+}
+.orderFood-m-left-list{
+	
+}
+/*.anchor::before{
+    display: block;
+    height: 6rem;
+    margin-top: -6rem;
+    visibility: hidden;
+    content: "";
+}*/

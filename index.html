@@ -61,17 +61,17 @@
 			    <div class="weui-cells">
 			      <div class="weui-cell weui-cell_select">
 			        <div class="weui-cell__bd">
-			          <select class="weui-select" name="select1">
-			            <option selected="" value="1">早餐</option>
+			          <select class="weui-select"  id="select1">
+			            <!--<option selected="" value="1">早餐</option>
 			            <option value="2">中餐</option>
-			            <option value="3">晚餐</option>
+			            <option value="3">晚餐</option>-->
 			          </select>
 			        </div>
 			      </div>
 			    </div>
 		    </div>
 		    <div class="submit-button">
-		    	<a href="javascript:;" class="weui-btn weui-btn_primary">开始点餐</a>
+		    	<a href="javascript:;" class="weui-btn weui-btn_primary" onclick="toMain()">开始点餐</a>
 		    </div>
 		</div>
 		<script type="text/javascript" src="lib/jquery-2.1.4.js"></script>
@@ -80,20 +80,17 @@
 		<script type="text/javascript" src="js/textScroll.js"></script>
 		<script type="text/javascript" src="lib/fastclick.js" ></script>
 		<script type="text/javascript" src="js/local.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
 		
 		<script>
-//			var mySwiper = new Swiper('.swiper-container', {
-//			    speed: 400,
-//			    spaceBetween: 100
-//			});
-//			$(".swiper-container").swiper({
-//		        loop: true,
-//		        autoplay: 3000,
-//		        pagination:{
-//		        	pagination: '.swiper-pagination',//分页容器的css选择器
-//		        	paginationClickable : true,
-//		        }
-//		    });
+			$(".swiper-container").swiper({
+		        loop: true,
+		        autoplay: 3000,
+		        pagination:{
+		        	pagination: '.swiper-pagination',//分页容器的css选择器
+		        	paginationClickable : true,
+		        }
+		    });
 			//横向滚动
 			$("#s").textScroll();
 			//日期
