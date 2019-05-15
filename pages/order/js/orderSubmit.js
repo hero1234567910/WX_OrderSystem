@@ -92,34 +92,34 @@ $('#submitOrder').click(function(){
 	
 	var array = new Array();
 	if(panNull(params['orderUserGuid'],'用户不能为空') 
-	&& panNull(params['consigneeName'],'收货人不能为空')
-	&&panNull(params['consigneeMobile'],'手机号码不能为空')
-	&&panNull(params['consigneeInpatient'],'地址不能为空')
-	&&panNull(params['consigneeStorey'],'地址不能为空')
-	&&panNull(params['consigneeBedNumber'],'地址不能为空')
-	&&panNull(params['reserveTime'],'送达时间不能为空')
-	&&panNull(params['reserveTimeSuffix'],'送达时间不能为空')
-	&&panNull(params['orderMoney'],'订单金额不能为空')){
+	|| panNull(params['consigneeName'],'收货人不能为空')
+	|| panNull(params['consigneeMobile'],'手机号码不能为空')
+	|| panNull(params['consigneeInpatient'],'地址不能为空')
+	|| panNull(params['consigneeStorey'],'地址不能为空')
+	|| panNull(params['consigneeBedNumber'],'地址不能为空')
+	|| panNull(params['reserveTime'],'送达时间不能为空')
+	|| panNull(params['reserveTimeSuffix'],'送达时间不能为空')
+	|| panNull(params['orderMoney'],'订单金额不能为空')){
 		return;
 	}
-	
 	$.ajax({
-        url: '/sys/wx/common/placeOrder',
-        contentType: 'application/json;charset=utf-8',
-        method: 'post',
-        data:JSON.stringify(params),
-        dataType: 'JSON',
-        success: function (res) {
-            if (res.code == '0') {
-                //下订单
-                localStorage.removeItem('orderItem');
-				location.href="../../../../WX_OrderSystem/pages/pay/pay.html"
-            }
-            if(res.code == '500'){
-            	console.log(res.msg);
-            }
-        }
-    });
+	        url: '/sys/wx/common/placeOrder',
+	        contentType: 'application/json;charset=utf-8',
+	        method: 'post',
+	        data:JSON.stringify(params),
+	        dataType: 'JSON',
+	        success: function (res) {
+	            if (res.code == '0') {
+	                //下订单
+	                localStorage.removeItem('orderItem');
+					location.href="../../../../WX_OrderSystem/pages/pay/pay.html"
+	            }
+	            if(res.code == '500'){
+	            	console.log(res.msg);
+	            }
+	        }
+   		 });
+	
 	
 })
 
