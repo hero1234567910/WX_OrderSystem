@@ -90,18 +90,18 @@ $('#submitOrder').click(function(){
 	params['orderMoney'] = $('#totalMoney').text().trim()
 	params['orderItem'] = JSON.stringify(vm.orderItem);
 	
-	
-	panNull(params['orderUserGuid'],'用户不能为空');
-	panNull(params['consigneeName'],'收货人不能为空');
-	panNull(params['consigneeMobile'],'手机号码不能为空');
-	panNull(params['consigneeInpatient'],'地址不能为空');
-	panNull(params['consigneeStorey'],'地址不能为空');
-	panNull(params['consigneeBedNumber'],'地址不能为空');
-	panNull(params['reserveTime'],'送达时间不能为空');
-	panNull(params['reserveTimeSuffix'],'送达时间不能为空');
-	panNull(params['orderMoney'],'订单金额不能为空');
-	
-	console.log(vm.orderItem);
+	var array = new Array();
+	if(panNull(params['orderUserGuid'],'用户不能为空') 
+	&& panNull(params['consigneeName'],'收货人不能为空')
+	&&panNull(params['consigneeMobile'],'手机号码不能为空')
+	&&panNull(params['consigneeInpatient'],'地址不能为空')
+	&&panNull(params['consigneeStorey'],'地址不能为空')
+	&&panNull(params['consigneeBedNumber'],'地址不能为空')
+	&&panNull(params['reserveTime'],'送达时间不能为空')
+	&&panNull(params['reserveTimeSuffix'],'送达时间不能为空')
+	&&panNull(params['orderMoney'],'订单金额不能为空')){
+		return;
+	}
 	
 	$.ajax({
         url: '/sys/wx/common/placeOrder',
@@ -135,7 +135,9 @@ function accMul(arg1,arg2){
 function panNull(ele,str){
 	if(ele == null || ele == ''){
 		$.alert(str,'警告');
-		return
+		return true;
+	}else{
+		return false;
 	}
 }
 

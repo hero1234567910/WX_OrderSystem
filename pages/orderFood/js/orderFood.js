@@ -30,9 +30,10 @@ var vm = new Vue({
                 success: function (res) {
                     if (res.code == '0') {
                         self.goodsTypeList = res.data;
+                        console.log(self.goodsTypeList)
                     }
                     if(res.code == '500'){
-                    	layer.msg(res.msg);
+                    	
                     }
                 }
             });

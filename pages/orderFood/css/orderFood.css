@@ -27,7 +27,7 @@
 
 .orderFood-m{
 	display: flex; /*设为伸缩容器*/
-	height: 100%;
+	height: calc(100vh - 119px);
 }
 
 .orderFood-m-left{
@@ -72,7 +72,7 @@ background-color: hsla(0,0%,100%,.95)
 
 .orderFood-item{
 	width: 100%;
-	/*height: 100px;*/
+	height: 100px;
 	display: flex; /*设为伸缩容器*/
 	padding-top: 10px;
     padding-bottom: 10px;
@@ -159,10 +159,16 @@ background-color: hsla(0,0%,100%,.95)
 .orderFood-m-left-list{
 	
 }
-/*.anchor::before{
+/*a.anchor{
     display: block;
-    height: 6rem;
-    margin-top: -6rem;
+    position: relative;
+    top: -92px;
     visibility: hidden;
-    content: "";
 }*/
+.target-fix {
+    position: relative;
+    top: -44px; // 偏移值
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
