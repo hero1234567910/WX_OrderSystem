@@ -24,6 +24,9 @@
     /* margin:inherit; */
     /*width: 30%;
 	margin-left: 50%;*/
+	position: absolute;
+    right: 20px;
+    bottom: 0px;
 }
 .page {
     position: fixed;
@@ -47,5 +50,5 @@ label.weui-label1{
 	float: right;
 }
 .w-item{
-	
+	overflow-y: auto;
 }
