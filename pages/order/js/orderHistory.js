@@ -12,7 +12,7 @@ var vm = new Vue({
 	methods: {
 		getOrderList() {
 			let self = this;
-			var UserGuid = "23351565-7757-4cf8-8906-f39e43264195";
+			var UserGuid = localStorage.getItem('userGuid');
 
 			$.ajax({
 				async: false,
@@ -22,9 +22,9 @@ var vm = new Vue({
 				data: UserGuid,
 				dataType: 'JSON',
 				success: function(res) {
-					console.log(res.data);
 					if (res.code == '0') {
 						self.orderList = res.data;
+						localStorage.setItem('orderList',res.data);
 					}
 					if (res.code == '500') {
 						layer.msg(res.msg);
