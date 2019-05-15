@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="../../css/local.css" />
 	</head>
 	<body>
-		
+		<a class="target-fix" name="a-<?php $a->id(); ?>"></a>
 		<div class="orderFood-hd">
 			<div class="orderFood-hd-left">
 				<img src="../../img/最新消息.png" style="width: 95%;vertical-align: middle;"/>
@@ -31,7 +31,7 @@
 				</div>
 			</div>
 			<div class="orderFood-m-right">
-					<ul style="list-style:none;margin-bottom: 30px;" v-for="item in goodsTypeList">
+					<ul style="list-style:none;" v-for="item in goodsTypeList">
 						<div :id="item.goodsType.rowGuid">
 							<div class="orderFood-m-right-pane">
 								<p v-cloak>{{item.goodsType.typeName}}</p>
@@ -39,7 +39,7 @@
 				            <li v-for="goods in item.goodsList" class="">
 				            	<div class="orderFood-item">
 				            		<div class="orderFood-item-left">
-				            			<img src="../../img/avatar4.png" class="goodsImg" width="100%"/>
+				            			<img :src="goods.goodsUrl" class="goodsImg" width="120px" height="100px"/>
 				            		</div>
 				            		<div class="orderFood-item-right">
 				            			<input style="display: none;" :value="goods.rowGuid" class="orderFood-item-inp"/>

@@ -31,7 +31,7 @@ var vm = new Vue({
 						self.addressList = res.data;
 					}
 					if (res.code == '500') {
-						layer.msg(res.msg);
+//						layer.msg(res.msg);
 					}
 				}
 			});
