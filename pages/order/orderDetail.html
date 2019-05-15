@@ -5,32 +5,36 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="../../lib/weui.min.css" />
 		<link rel="stylesheet" href="../../css/jquery-weui.min.css" />
+		<link rel="stylesheet" href="../../css/local.css"/>
 		<link rel="stylesheet" href="css/orderDetail.css" />
 		<title></title>
 	</head>
 	<body>
+	<div id="vueConfig">
 		<div class="weui-panel weui-panel_access">
 			<div class="weui-panel__hd">商品信息</div>
-			<a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
-				<div class="weui-media-box__hd" style="width: 100px;">
-					<img class="weui-media-box__thumb" src="../../images/cai.png">
-				</div>
-				<div class="weui-media-box__bd">
-					<h4 class="weui-media-box__title" style="margin-bottom: 10px;">XX面</h4>
-					<p class="weui-media-box__title">￥10</p>
-				</div>
-				<div class="weui-media-box__bd">
-					<div class="weui-cell__ft">x 1</div>
-				</div>
-			</a>
-			<div class="weui-cell">
-				<div class="weui-cell__bd">
-					<p>商品金额: ￥10</p>
+			<div class="" v-for="item in orderData.hosOrderitems" v-cloak>
+				<a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+					<div class="weui-media-box__hd" style="width: 100px;">
+						<img class="weui-media-box__thumb" :src="item.hosGoods.goodsUrl">
+					</div>
+					<div class="weui-media-box__bd">
+						<h4 class="weui-media-box__title" style="margin-bottom: 10px;">{{item.hosGoods.goodsName}}</h4>
+						<p class="weui-media-box__title">¥{{item.itemPrice}}</p>
+					</div>
+					<div class="weui-media-box__bd">
+						<div class="weui-cell__ft">x{{item.count}}</div>
+					</div>
+				</a>
+				<div class="weui-cell">
+					<div class="weui-cell__bd">
+						<p>商品金额: ¥{{item.totalMoney}}</p>
+					</div>
 				</div>
 			</div>
 			<div class="weui-cell">
 				<div class="weui-cell__bd">
-					<p>总计金额: ￥11</p>
+					<p>总计金额: ¥{{orderData.orderMoney}}</p>
 				</div>
 			</div>
 			<div class="weui-panel__hd">订单信息</div>
@@ -38,32 +42,32 @@
 				<div class="weui-cell__bd">
 					<p>订单编号:</p>
 				</div>
-				<div class="weui-cell__ft">234567890qwertyui</div>
+				<div class="weui-cell__ft">{{orderData.orderNumber}}</div>
 			</div>
 			<div class="weui-cell">
 				<div class="weui-cell__bd">
 					<p>创建时间:</p>
 				</div>
-				<div class="weui-cell__ft">05-11 9:20</div>
+				<div class="weui-cell__ft">{{orderData.createTime}}</div>
 			</div>
 		</div>
 		<div class="weui-cell">
 			<div class="weui-cell__bd">
 				<p>订单状态:</p>
 			</div>
-			<div class="weui-cell__ft">已完成</div>
+			<div class="weui-cell__ft">{{orderData.orderStatusText}}</div>
 		</div>
 		<div class="weui-cell">
 			<div class="weui-cell__bd">
 				<p>地址:</p>
 			</div>
-			<div class="weui-cell__ft">地区</div>
+			<div class="weui-cell__ft">{{orderData.consigneeInpatient}}{{orderData.consigneeStorey}}{{orderData.consigneeBedNumber}}</div>
 		</div>
 		<div class="weui-cell">
 			<div class="weui-cell__bd">
 				<p>备注:</p>
 			</div>
-			<div class="weui-cell__ft">234567890qwertyui</div>
+			<div class="weui-cell__ft">{{orderData.remark}}</div>
 		</div>
 		<div class="page">
 			<div class="weui-panel__hd" style="height: 60px">
@@ -71,9 +75,11 @@
 				</div>
 			</div>
 		</div>
+	</div>
 		<script src="../../lib/jquery-2.1.4.js"></script>
 		<script src="../../js/jquery-weui.min.js"></script>
 		<script src="../../lib/fastclick.js"></script>
+		<script src="../../js/vue.js"></script>
 		<script src="../../js/local.js"></script>
 		<script src="js/orderDetail.js"></script>
 	</body>

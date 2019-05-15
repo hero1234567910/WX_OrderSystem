@@ -2,7 +2,7 @@ var OrderItemGuid = "";
 var vm = new Vue({
 	el:'#vueConfig',
 	data: {
-		roles: []
+		orderList: []
 	},
 	created() {
 		this.getOrderList()
@@ -15,7 +15,6 @@ var vm = new Vue({
 			var UserGuid = localStorage.getItem('userGuid');
 
 			$.ajax({
-				async: false,
 				url: '/sys/hosorder/getOrderListByUserGuid',
 				contentType: 'application/json;charset=utf-8',
 				method: 'post',
@@ -24,7 +23,7 @@ var vm = new Vue({
 				success: function(res) {
 					if (res.code == '0') {
 						self.orderList = res.data;
-						localStorage.setItem('orderList',res.data);
+						localStorage.setItem('orderList',JSON.stringify(res.data));
 					}
 					if (res.code == '500') {
 						layer.msg(res.msg);
@@ -32,26 +31,13 @@ var vm = new Vue({
 				}
 			});
 		}
-		// ,
-		// getGoodsName(){
-		// 	let self = this;
-		// 	$.ajax({
-		// 		async: false,
-		// 		url: '/sys/hosgoods/getGoodsNameByItemGuid',
-		// 		contentType: 'application/json;charset=utf-8',
-		// 		method: 'post',
-		// 		data: OrderItemGuid,
-		// 		dataType: 'JSON',
-		// 		success: function(res) {
-		// 			console.log(res);
-		// 			if (res.code == '0') {
-		// 				self.goodsName = res.data;
-		// 			}
-		// 			if (res.code == '500') {
-		// 				layer.msg(res.msg);
-		// 			}
-		// 		}
-		// 	})
-		// }
 	}
 });
+
+$('body').on('click','.weui-media-box.weui-media-box_appmsg',function(){
+	var orderGuid = $(this).children('#orderGuid').text().trim();
+	window.top.location.href="orderDetail.html?orderGuid="+orderGuid;
+})
+
+$('.weui-media-box.weui-media-box_appmsg').click(function(){
+})
