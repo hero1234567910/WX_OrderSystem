@@ -150,6 +150,6 @@ $('#toSubmit').click(function(){
 		return;
 	}
 	localStorage.setItem('orderItem',JSON.stringify(orderItem));
-	window.top.location.href = "../../../../WX_OrderSystem/pages/order/orderSubmit.html";
+	window.top.location.href = "../../../../WX_OrderSystem/pages/order/orderSubmit.html?orderPrice="+orderPrice;
 })
 

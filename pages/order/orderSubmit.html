@@ -10,86 +10,90 @@
 		<title></title>
 	</head>
 	<body>
-		<div class="weui-panel weui-panel_access" id="vueConfig">
-			<div class="weui-panel__hd">送餐地址</div>
-			<!--<a class="weui-cell weui-cell_access" href="orderLocationList.html">
-				<div class="weui-cell__bd">
-					<em id="inpatient">内科</em><em id="storey">三楼</em><em id="bedNumber">10号床</em>
-				</div>
-				<div class="weui-cell__ft">
-				</div>
-			</a>-->
-			<a class="weui-cell weui-cell_access" href="javascript:;" onclick="addressChange()" v-cloak>
-			    <div class="weui-cell__bd">
-			      <div class="loca-x" style="white-space: nowrap;width: 60px;">
-			      	<td><input class="weui-input" id="hosInpatient" name="hosInpatient" type="text" readonly="readonly"/><input class="weui-input" id="hosStorey" name="hosStorey" type="text" readonly="readonly"/><input class="weui-input" id="hosBedNumber" name="hosBedNumber" type="text" readonly="readonly"/></td>
-			      </div>
-			      <div class="loca-name" >
-			      	<!-- <p id="hosUserName" name="hosUserName"></p> -->
-					<input class="weui-input" id="hosUserName" name="hosUserName" type="text" readonly="readonly">
-			      </div>
-			      <div class="loca-mobile">
-			      	<!-- <p id="hosUserMobile" name="hosUserMobile"></p> -->
-					<input class="weui-input" id="hosUserMobile" name="hosUserMobile" type="tel" readonly="readonly">
-			      </div>
-			    </div>
-			    <div class="weui-cell__ft"></div>
-			</a>
-			<div class="weui-panel__hd">送达时间</div>
-			<a class="weui-cell weui-cell_access" href="javascript:;">
-				<div class="weui-cell__bd">
-					<p v-cloak id="reserveTime">{{orderDate}}</p>
-				</div>
-				<div class="weui-cell__ft">
-				</div>
-			</a>
-			<div class="weui-panel__hd"></div>
-			<div v-for="item in orderItem">
-				<a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
-					<div class="weui-media-box__hd" style="width: 100px;">
-						<img class="weui-media-box__thumb" :src="item.goodsImgUrl">
+		<div id="vueConfig">
+			<div class="weui-panel weui-panel_access" style="height: 90%;">
+				<div class="weui-panel__hd">送餐地址</div>
+				<!--<a class="weui-cell weui-cell_access" href="orderLocationList.html">
+					<div class="weui-cell__bd">
+						<em id="inpatient">内科</em><em id="storey">三楼</em><em id="bedNumber">10号床</em>
 					</div>
-					<div class="weui-media-box__bd">
-						<h4 class="weui-media-box__title" style="margin-bottom: 10px;" v-cloak>{{item.goodsName}}</h4>
-						<p class="weui-media-box__title" v-cloak>{{item.goodsCount}}</p>
+					<div class="weui-cell__ft">
 					</div>
-					<div class="weui-media-box__bd">
-						<div class="weui-cell__ft"><em>¥</em><em v-cloak>{{item.goodsPrice}}</em></div>
+				</a>-->
+				<a class="weui-cell weui-cell_access" href="javascript:;" onclick="addressChange()" v-cloak style="height: 70px;">
+				    <div class="weui-cell__bd">
+				      <div class="loca-x" style="white-space: nowrap;width: 60px;">
+				      	<td><input class="weui-input" id="hosInpatient" name="hosInpatient" type="text" readonly="readonly"/><input class="weui-input" id="hosStorey" name="hosStorey" type="text" readonly="readonly"/><input class="weui-input" id="hosBedNumber" name="hosBedNumber" type="text" readonly="readonly"/></td>
+				      </div>
+				      <div class="loca-name" >
+				      	<!-- <p id="hosUserName" name="hosUserName"></p> -->
+						<input class="weui-input" id="hosUserName" name="hosUserName" type="text" readonly="readonly">
+				      </div>
+				      <div class="loca-mobile">
+				      	<!-- <p id="hosUserMobile" name="hosUserMobile"></p> -->
+						<input class="weui-input" id="hosUserMobile" name="hosUserMobile" type="tel" readonly="readonly">
+				      </div>
+				    </div>
+				    <div class="weui-cell__ft"></div>
+				</a>
+				<div class="weui-panel__hd">送达时间</div>
+				<a class="weui-cell weui-cell_access" href="javascript:;">
+					<div class="weui-cell__bd">
+						<p v-cloak id="reserveTime">{{orderDate}}</p>
+					</div>
+					<div class="weui-cell__ft">
 					</div>
 				</a>
-				<div class="weui-cell">
-					<div class="weui-cell__bd">
-						<p>餐盒费</p>
+				<div class="weui-panel__hd"></div>
+				<div class="w-item">
+					<div v-for="item in orderItem">
+						<a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+							<div class="weui-media-box__hd" style="width: 100px;">
+								<img class="weui-media-box__thumb" :src="item.goodsImgUrl">
+							</div>
+							<div class="weui-media-box__bd">
+								<h4 class="weui-media-box__title" style="margin-bottom: 10px;" v-cloak>{{item.goodsName}}</h4>
+								<p class="weui-media-box__title" v-cloak>{{item.goodsCount}}</p>
+							</div>
+							<div class="weui-media-box__bd">
+								<div class="weui-cell__ft"><em>¥</em><em v-cloak>{{item.goodsPrice}}</em></div>
+							</div>
+						</a>
+						<div class="weui-cell">
+							<div class="weui-cell__bd">
+								<p>餐盒费</p>
+							</div>
+							<div class="weui-cell__ft">¥0</div>
+						</div>
+						<div class="weui-cell">
+							<div class="weui-cell__bd">
+								<p></p>
+							</div>
+							<div class="weui-cell__ft"><em>小计¥</em><em>{{item.totalPrice}}</em></div>
+						</div>
 					</div>
-					<div class="weui-cell__ft">¥0</div>
 				</div>
+				<div class="weui-panel__hd"></div>
 				<div class="weui-cell">
+					<div class="weui-cell__hd"><label class="weui-label">订单备注:</label></div>
 					<div class="weui-cell__bd">
-						<p></p>
+						<input class="weui-input" type="text" placeholder="" id="remark">
 					</div>
-					<div class="weui-cell__ft"><em>小计¥</em><em>{{item.totalPrice}}</em></div>
 				</div>
-			</div>
-			<div class="weui-panel__hd"></div>
-			<div class="weui-cell">
-				<div class="weui-cell__hd"><label class="weui-label">订单备注:</label></div>
-				<div class="weui-cell__bd">
-					<input class="weui-input" type="text" placeholder="" id="remark">
-				</div>
-			</div>
-			<div class="weui-cell">
-				<div class="weui-cell__hd"><label class="weui-label">支付方式</label></div>
-				<div class="weui-cell__bd">
-					<img class="weui-media-box__info__meta" src="../../images/Wxpay.png">
-				</div>
-			</div>
-		</div>
-		<div class="page">
-			<div class="weui-panel__hd" style="height: 60px">
 				<div class="weui-cell">
-					<div class="weui-cell__hd"><label class="weui-label1">合计¥<em id="totalMoney">0</em></label></div>
-					<div class="btn_bottom">
-						<a href="javascript:;" class="weui-btn weui-btn_primary" id="submitOrder">提交订单</a>
+					<div class="weui-cell__hd"><label class="weui-label">支付方式</label></div>
+					<div class="weui-cell__bd">
+						<img class="weui-media-box__info__meta" src="../../images/Wxpay.png">
+					</div>
+				</div>
+			</div>
+			<div class="page" style="height: 10%;">
+				<div class="weui-panel__hd" style="height: 60px">
+					<div class="weui-cell">
+						<div class="weui-cell__hd"><label class="weui-label1">合计¥<em id="totalMoney">{{orderPrice}}</em></label></div>
+						<div class="btn_bottom">
+							<a href="javascript:;" class="weui-btn weui-btn_primary" id="submitOrder">提交订单</a>
+						</div>
 					</div>
 				</div>
 			</div>

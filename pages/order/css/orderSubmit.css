@@ -20,10 +20,10 @@
 }
 .btn_bottom {
 	/* overflow: visible; */
-	float:right;
+	/*float:right;*/
     /* margin:inherit; */
-    width: 30%;
-	margin-left: 50%;
+    /*width: 30%;
+	margin-left: 50%;*/
 }
 .page {
     position: fixed;
@@ -45,4 +45,7 @@ label.weui-label1{
 }
 .loca-mobile{
 	float: right;
+}
+.w-item{
+	
 }

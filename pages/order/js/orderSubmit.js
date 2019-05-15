@@ -4,7 +4,8 @@ var vm = new Vue({
     data: {
         // 数据创建
         orderDate:localStorage.getItem('orderDate')+' '+localStorage.getItem('mealPoint'),
-        orderItem:[]
+        orderItem:[],
+        orderPrice:''
     },
     mounted(){
     	
@@ -21,6 +22,8 @@ var vm = new Vue({
     			array[i]['totalPrice'] = accMul(array[i].goodsCount,array[i].goodsPrice);
     		}
 			self.orderItem = array;
+			self.orderPrice = GetQueryString('orderPrice');
+			console.log(self.orderPrice);
     	}
 //      getGoodsList() {
 //          let self = this;
