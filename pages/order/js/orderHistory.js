@@ -15,7 +15,7 @@ var vm = new Vue({
 			var UserGuid = localStorage.getItem('userGuid');
 
 			$.ajax({
-				url: '/sys/hosorder/getOrderListByUserGuid',
+				url: '/wx/sys/hosorder/getOrderListByUserGuid',
 				contentType: 'application/json;charset=utf-8',
 				method: 'post',
 				data: UserGuid,

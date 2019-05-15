@@ -23,7 +23,7 @@ $().ready(function(){
 	
 	//获取select下拉框值
 	$.ajax({
-	    url: '/sys/hosgoodstype/getTopGoodsType',
+	    url: '/wx/sys/hosgoodstype/getTopGoodsType',
 	    contentType: 'application/json;charset=utf-8',
 	    method: 'post',
 	    dataType: 'JSON',

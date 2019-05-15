@@ -17,10 +17,11 @@ var vm = new Vue({
 			//              window.top.location.href = 'login.html';
 			//          }
 			var hosUserGuid = localStorage.getItem('userGuid');
+			
 			//根据用户行标获取地址列表
 			$.ajax({
 				async: false,
-				url: '/sys/hosaddress/getAddressListByUserGuid',
+				url: '/wx/sys/hosaddress/getAddressListByUserGuid',
 				contentType: 'application/json;charset=utf-8',
 				method: 'post',
 				data: hosUserGuid,

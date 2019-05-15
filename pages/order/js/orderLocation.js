@@ -25,7 +25,7 @@ if(panNull($('#hosUserName').val(),'用户名不能为空')
 
 	if (GetQueryString('rowGuid') == null) {
 		$.ajax({
-			url: '/sys/hosaddress/add',
+			url: '/wx/sys/hosaddress/add',
 			contentType: 'application/json;charset=utf-8',
 			method: 'post',
 			data: JSON.stringify(params2),
@@ -33,7 +33,7 @@ if(panNull($('#hosUserName').val(),'用户名不能为空')
 			success: function(res) {
 				if (res.code == '0') {
 					console.log(res); //打印服务端返回的数据(调试用)
-					location.href = "../../../../WX_OrderSystem/pages/addressMG/address.html";
+					location.href = "../../../../WX_OrderSystem/pages/order/orderLocationList.html";
 				}
 				if (res.code == '500') {
 					console.log(res.msg);
@@ -42,7 +42,7 @@ if(panNull($('#hosUserName').val(),'用户名不能为空')
 		});
 	} else {
 		$.ajax({
-			url: '/sys/hosaddress/update',
+			url: '/wx/sys/hosaddress/update',
 			contentType: 'application/json;charset=utf-8',
 			method: 'put',
 			data: JSON.stringify(params2),
