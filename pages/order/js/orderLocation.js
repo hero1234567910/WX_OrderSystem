@@ -9,10 +9,9 @@ $('#toSave').click(function() {
 	params2['hosBedNumber'] = $('#hosBedNumber').val();
 	params2['hosUserGuid'] = localStorage.getItem('userGuid');
 
-	panNull(params2['hosUserName'], '用户名不能为空');
-	//checkName(params2['hosUserName'],'用户名格式错误');
-	panNull(params2['hosUserMobile'], '手机号不能为空');
-	//checkMobile(params2['hosUserMobile'], '手机号格式错误');
+	checkName(params2['hosUserName'], '用户名格式错误');
+	//panNull(params2['hosUserMobile'], '手机号不能为空');
+	checkMobile(params2['hosUserMobile'], '手机号格式错误');
 	panNull(params2['hosInpatient'], '病区不能为空');
 	panNull(params2['hosStorey'], '楼层不能为空');
 	panNull(params2['hosBedNumber'], '床号不能为空');
@@ -62,14 +61,14 @@ var hosUserMobile = GetQueryString('hosUserMobile');
 var hosInpatient = GetQueryString('hosInpatient');
 var hosStorey = GetQueryString('hosStorey');
 var hosBedNumber = GetQueryString('hosBedNumber');
-console.log(rowGuid);
+
 $('#rowGuid').val(rowGuid);
 $('#hosUserName').val(hosUserName);
 $('#hosUserMobile').val(hosUserMobile);
 $('#hosInpatient').val(hosInpatient);
 $('#hosStorey').val(hosStorey);
 $('#hosBedNumber').val(hosBedNumber);
-console.log($('#hosUserName').val());
+
 //获取url中的参数
 function GetQueryString(name) {
 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -81,27 +80,26 @@ function GetQueryString(name) {
 function panNull(ele, str) {
 	if (ele == null || ele == '') {
 		$.alert(str, '警告');
-		return false;
+		return ;
 	}
 }
-// function checkName(ele, str) {
-// 	var patrn = /[^\x00-\x80]/;
-// 	if (!patrn.test(ele)) {
-// 		$.alert(str, '警告');
-// 		return false;
-// 	}
-// }
-// 
-// function checkMobile(ele, str) {
-// 	var tel = $('#hosUserMobile').val();
-// 	var patrn = /^[1][3,4,5,7,8][0-9]{9}$/;
-// 	if (tel == null || tel == '') {
-// 		$.alert(str, '警告');
-// 		return false;
-// 	} else if (patrn.test(tel) == false) {
-// 		$.alert(str, '警告');
-// 		return false;
-// 	} else {
-// 		return true;
-// 	}
-// }
+
+function checkName(ele, str) {
+	var patrn = /^[\u2E80-\u9FFF]+$/;
+	if (!patrn.test(ele)) {
+		$.alert(str, '警告');
+		return ;
+	}
+}
+
+function checkMobile(ele, str) {
+	var tel = $('#hosUserMobile').val();
+	var patrn = /^[1][3,4,5,7,8][0-9]{9}$/;
+	if (tel == null || tel == '') {
+		$.alert(str, '警告');
+		return ;
+	} else if (patrn.test(tel) == false) {
+		$.alert(str, '警告');
+		return ;
+	}
+}
