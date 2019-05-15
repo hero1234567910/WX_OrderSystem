@@ -34,8 +34,9 @@ if(panNull($('#hosUserName').val(),'用户名不能为空')
 			success: function(res) {
 				if (res.code == '0') {
 					console.log(res); //打印服务端返回的数据(调试用)
-					if(flag==true){
-						location.href = "../../../../WX_OrderSystem/pages/order/orderLocation.html";
+					console.log(flag,222)
+					if(flag){
+						location.href = "../../../../WX_OrderSystem/pages/order/orderLocationList.html";
 					}else{
 						location.href = "../../../../WX_OrderSystem/pages/addressMG/address.html";
 					}

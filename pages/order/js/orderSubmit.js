@@ -82,11 +82,11 @@ $('#submitOrder').click(function(){
 	var params = {};
 	//准备参数
 	params['orderUserGuid'] = localStorage.getItem('userGuid');
-	params['consigneeName'] = $('#consigneeName').text().trim();
-	params['consigneeMobile'] = $('#consigneeMobile').text().trim();
-	params['consigneeInpatient'] = $('#inpatient').text().trim();
-	params['consigneeStorey'] = $('#storey').text().trim();
-	params['consigneeBedNumber'] = $('#bedNumber').text().trim();
+	params['consigneeName'] = $('#hosUserName').val();
+	params['consigneeMobile'] = $('#hosUserMobile').val();
+	params['consigneeInpatient'] = $('#hosInpatient').val();
+	params['consigneeStorey'] = $('#hosStorey').val();
+	params['consigneeBedNumber'] = $('#hosBedNumber').val();
 	params['remark'] = $('#remark').text().trim();
 	params['reserveTime'] = localStorage.getItem('orderDate');
 	params['reserveTimeSuffix'] = $('#reserveTime').text().trim();
