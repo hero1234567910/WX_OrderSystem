@@ -9,12 +9,19 @@ $('#toSave').click(function() {
 	params2['hosBedNumber'] = $('#hosBedNumber').val();
 	params2['hosUserGuid'] = localStorage.getItem('userGuid');
 
-	checkName(params2['hosUserName'], '用户名格式错误');
-	//panNull(params2['hosUserMobile'], '手机号不能为空');
-	checkMobile(params2['hosUserMobile'], '手机号格式错误');
-	panNull(params2['hosInpatient'], '病区不能为空');
-	panNull(params2['hosStorey'], '楼层不能为空');
-	panNull(params2['hosBedNumber'], '床号不能为空');
+if(panNull($('#hosUserName').val(),'用户名不能为空')
+	||checkName($('#hosUserName').val(), '用户名格式错误')
+	||panNull($('#hosUserMobile').val(),'手机号码不能为空')
+	||checkMobile($('#hosUserMobile').val(), '手机号格式错误')	
+	||panNull($('#hosInpatient').val(), '病区不能为空')
+	||checkAddress($('#hosInpatient').val(), '病区格式错误')
+	||panNull($('#hosStorey').val(), '楼层不能为空')
+	||checkAddress($('#hosStorey').val(), '楼层格式错误')
+	||panNull($('#hosBedNumber').val(), '床号不能为空')
+	||checkAddress($('#hosBedNumber').val(), '床号格式错误')
+){
+		return;
+	}
 
 	if (GetQueryString('rowGuid') == null) {
 		$.ajax({
@@ -80,7 +87,9 @@ function GetQueryString(name) {
 function panNull(ele, str) {
 	if (ele == null || ele == '') {
 		$.alert(str, '警告');
-		return ;
+		return  true;
+	}else {
+		return false;
 	}
 }
 
@@ -88,18 +97,29 @@ function checkName(ele, str) {
 	var patrn = /^[\u2E80-\u9FFF]+$/;
 	if (!patrn.test(ele)) {
 		$.alert(str, '警告');
-		return ;
+		return true;
+	} else{
+		return false;
 	}
 }
 
 function checkMobile(ele, str) {
 	var tel = $('#hosUserMobile').val();
 	var patrn = /^[1][3,4,5,7,8][0-9]{9}$/;
-	if (tel == null || tel == '') {
+	if (!patrn.test(tel)) {
 		$.alert(str, '警告');
-		return ;
-	} else if (patrn.test(tel) == false) {
-		$.alert(str, '警告');
-		return ;
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function checkAddress(ele,str){
+	var patrn = /^[\u4e00-\u9fa5_a-zA-Z0-9]+$/;
+	if(!patrn.test(ele)){
+		$.alert(str,'警告');
+		return true;
+	}else{
+		return false;
 	}
 }
