@@ -106,7 +106,7 @@ $('#submitOrder').click(function(){
 		return;
 	}
 	$.ajax({
-	        url: '/sys/wx/common/placeOrder',
+	        url: '/wx/sys/wx/common/placeOrder',
 	        contentType: 'application/json;charset=utf-8',
 	        method: 'post',
 	        data:JSON.stringify(params),

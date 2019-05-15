@@ -1,7 +1,7 @@
-.weui-panel__hd {
-	color: grey;
-	font-size: 20px;
-	background-color: #F5F5F5;
+.weui-panel__hd{
+	background-color: #efeff4;
+	font-size: initial;
+	font-weight: 600;
 }
 
 .weui-cell__ft{
@@ -51,4 +51,11 @@ label.weui-label1{
 }
 .w-item{
 	overflow-y: auto;
+}
+html{
+	overflow: auto;
+}
+
+element.style{
+	overflow: auto;
 }

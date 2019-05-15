@@ -22,7 +22,7 @@ var vm = new Vue({
            	console.log(code)
             //根据分类code获取菜品列表
             $.ajax({
-                url: '/sys/hosgoodstype/getHosGoodsByPcode',
+                url: '/wx/sys/hosgoodstype/getHosGoodsByPcode',
                 contentType: 'application/json;charset=utf-8',
                 method: 'post',
                 data:code,
