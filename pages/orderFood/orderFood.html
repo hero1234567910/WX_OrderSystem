@@ -25,8 +25,8 @@
 		<div class="orderFood-m" id="vueGoodsList">
 			<div class="orderFood-m-left">
 				<div class="nav">
-			        <ul>
-			            <li v-for="item in goodsTypeList" class="orderFood-m-left-list"><a :href=`#${item.goodsType.rowGuid}` class="anchor" v-cloak>{{item.goodsType.typeName}}</a></li>
+			        <ul v-cloak>
+			            <li v-for="item in goodsTypeList" class="orderFood-m-left-list"><a :href=`#${item.goodsType.rowGuid}` class="anchor">{{item.goodsType.typeName}}</a></li>
 			        </ul>
 				</div>
 			</div>
