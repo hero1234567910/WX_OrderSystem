@@ -57,5 +57,5 @@ $('.weui-cell.weui-cell_access').click(function(){
 
 
 $('#addressAdd').click(function() {
-	location.href = "../order/orderLocation.html";
+	window.top.location.href = "../order/orderLocation.html";
 });
