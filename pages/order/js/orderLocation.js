@@ -23,6 +23,7 @@ if(panNull($('#hosUserName').val(),'用户名不能为空')
 		return;
 	}
 
+	var flag =  GetQueryString('flag');
 	if (GetQueryString('rowGuid') == null) {
 		$.ajax({
 			url: '/wx/sys/hosaddress/add',
@@ -33,7 +34,11 @@ if(panNull($('#hosUserName').val(),'用户名不能为空')
 			success: function(res) {
 				if (res.code == '0') {
 					console.log(res); //打印服务端返回的数据(调试用)
-					location.href = "../../../../WX_OrderSystem/pages/order/orderLocationList.html";
+					if(flag==true){
+						location.href = "../../../../WX_OrderSystem/pages/order/orderLocation.html";
+					}else{
+						location.href = "../../../../WX_OrderSystem/pages/addressMG/address.html";
+					}
 				}
 				if (res.code == '500') {
 					console.log(res.msg);
@@ -68,6 +73,7 @@ var hosUserMobile = GetQueryString('hosUserMobile');
 var hosInpatient = GetQueryString('hosInpatient');
 var hosStorey = GetQueryString('hosStorey');
 var hosBedNumber = GetQueryString('hosBedNumber');
+
 
 $('#rowGuid').val(rowGuid);
 $('#hosUserName').val(hosUserName);

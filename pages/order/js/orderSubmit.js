@@ -151,5 +151,5 @@ function GetQueryString(name){
 }
 
 function addressChange(){
-	location.href = "../order/orderLocationList.html";
+	window.top.location.href = "../order/orderLocationList.html";
 }
