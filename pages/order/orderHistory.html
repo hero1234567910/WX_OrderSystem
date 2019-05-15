@@ -13,13 +13,13 @@
 			<div class="weui-panel__hd">历史订单</div>
 			<div class="weui-panel__bd" id="vueConfig">
 				<a href="javascript:;" class="weui-media-box weui-media-box_appmsg" v-for="item1 in orderList" v-cloak>
+					<div id="orderGuid" style="display: none;">{{item1.rowGuid}}</div>
 					<div class="weui-media-box__hd" style="width: 100px;">
-						<img class="weui-media-box__thumb" :src="`{item1.hosOrderitems[0].hosGoods.goodsUrl}`">
+						<img class="weui-media-box__thumb" :src="item1.hosOrderitems[0].hosGoods.goodsUrl">
 					</div>
 					<div class="weui-media-box__bd">
-						<div id="orderGuid">{{item1.rowGuid}}</div>
-						<h4 class="weui-media-box__title">订单名称:{{item1.goodsName}}</h4>
-						<p class="weui-media-box__title">送达时间:{{item1.reserveTime}}</p>
+						<h4 class="weui-media-box__title">订单流水号:{{item1.orderNumber}}</h4>
+						<p class="weui-media-box__title">送达时间:{{item1.reserveTimeSuffix}}</p>
 						<p class="weui-media-box__title">订单金额:{{item1.orderMoney}}</p>
 					</div>
 					<div class="weui-media-box__bd">
