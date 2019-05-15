@@ -16,3 +16,8 @@
     padding-left: auto;
     text-align: center;
 }
+.weui-panel__hd {
+	color: grey;
+	font-size: 20px;
+	background-color: #F5F5F5;
+}
