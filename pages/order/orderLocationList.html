@@ -11,28 +11,33 @@
 	</head>
 	<body>
 		<div class="weui-panel__hd">地址列表</div>
-		<div class="weui-cells">
-		  <a class="weui-cell weui-cell_access" href="javascript:;">
+		<div class="weui-cells" id="vueConfig">
+		  <a class="weui-cell weui-cell_access" href="javaScript:;" onclick="addressChange()" v-for="item in addressList" v-cloak>
 		    <div class="weui-cell__bd">
+					<div class="loca-name" style="display: none;">
+						<p id="rowGuid">{{item.rowGuid}}</p>
+					</div>
+					
 		      <div class="loca-x">
-		      	<p class="p-location">黄土高坡良家市</p>
+		      	<p class="p-location"><em id="inpatient">{{item.hosInpatient}}</em><em id="storey">{{item.hosStorey}}</em><em id="bedNumber">{{item.hosBedNumber}}</em></p>
 		      </div>
-		      <div class="loca-name">
-		      	<p>张文远</p>
+		      <div class="loca-name" >
+		      	<p id="userName">{{item.hosUserName}}</p>
 		      </div>
 		      <div class="loca-mobile">
-		      	<p>143243242</p>
+		      	<p id="userMobile">{{item.hosUserMobile}}</p>
 		      </div>
 		    </div>
-		    <div class="weui-cell__ft">
-		    </div>
+		    <div class="weui-cell__ft"></div>
 		  </a>
 		</div>
+		
 		<div class="add-ad">
-			<img src="../../img/加地址.svg" width="25%"/>
+			<img src="../../img/加地址.svg" width="25%" id="addressAdd"/>
 		</div>
 		<script src="../../lib/jquery-2.1.4.js"></script>
 		<script src="../../js/jquery-weui.min.js"></script>
+		<script src="../../js/vue.js"></script>
 		<script src="../../lib/fastclick.js"></script>
 		<script src="../../js/local.js"></script>
 		<script src="js/orderLocationList.js"></script>

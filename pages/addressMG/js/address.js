@@ -16,7 +16,7 @@ var vm = new Vue({
 			//          if (rowGuid == null) {
 			//              window.top.location.href = 'login.html';
 			//          }
-			var hosUserGuid = "23351565-7757-4cf8-8906-f39e43264195";
+			var hosUserGuid = localStorage.getItem('userGuid');
 			//根据用户行标获取地址列表
 			$.ajax({
 				async: false,

@@ -11,6 +11,7 @@ var vm = new Vue({
     },
     created() {
         this.getGoodsPrice();
+		
     },
     methods: {
     	getGoodsPrice(){
@@ -55,6 +56,22 @@ var vm = new Vue({
 $().ready(function(){
 	
 })
+
+var hosUserName = GetQueryString('hosUserName');
+var hosUserMobile = GetQueryString('hosUserMobile');
+var hosInpatient = GetQueryString('hosInpatient');
+var hosStorey = GetQueryString('hosStorey');
+var hosBedNumber = GetQueryString('hosBedNumber');
+
+if(hosInpatient==null){
+	$('#hosUserName').val("地址为空，请添加地址");
+}else{
+	$('#hosUserName').val(hosUserName);
+	$('#hosUserMobile').val(hosUserMobile);
+	$('#hosInpatient').val(hosInpatient);
+	$('#hosStorey').val(hosStorey);
+	$('#hosBedNumber').val(hosBedNumber);
+}
 
 $('#submitOrder').click(function(){
 	
@@ -120,4 +137,14 @@ function panNull(ele,str){
 		$.alert(str,'警告');
 		return
 	}
+}
+
+function GetQueryString(name){
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+     if(r!=null)return  decodeURI(r[2]); return null;
+}
+
+function addressChange(){
+	location.href = "../order/orderLocationList.html";
 }
