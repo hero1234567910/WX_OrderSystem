@@ -9,21 +9,21 @@ $('#toSave').click(function() {
 	params2['hosBedNumber'] = $('#hosBedNumber').val();
 	params2['hosUserGuid'] = localStorage.getItem('userGuid');
 
-if(panNull($('#hosUserName').val(),'用户名不能为空')
-	||checkName($('#hosUserName').val(), '用户名格式错误')
-	||panNull($('#hosUserMobile').val(),'手机号码不能为空')
-	||checkMobile($('#hosUserMobile').val(), '手机号格式错误')	
-	||panNull($('#hosInpatient').val(), '病区不能为空')
-	||checkAddress($('#hosInpatient').val(), '病区格式错误')
-	||panNull($('#hosStorey').val(), '楼层不能为空')
-	||checkAddress($('#hosStorey').val(), '楼层格式错误')
-	||panNull($('#hosBedNumber').val(), '床号不能为空')
-	||checkAddress($('#hosBedNumber').val(), '床号格式错误')
-){
+	if (panNull($('#hosUserName').val(), '用户名不能为空') ||
+		checkName($('#hosUserName').val(), '用户名格式错误') ||
+		panNull($('#hosUserMobile').val(), '手机号码不能为空') ||
+		checkMobile($('#hosUserMobile').val(), '手机号格式错误') ||
+		panNull($('#hosInpatient').val(), '病区不能为空') ||
+		checkAddress($('#hosInpatient').val(), '病区格式错误') ||
+		panNull($('#hosStorey').val(), '楼层不能为空') ||
+		checkAddress($('#hosStorey').val(), '楼层格式错误') ||
+		panNull($('#hosBedNumber').val(), '床号不能为空') ||
+		checkAddress($('#hosBedNumber').val(), '床号格式错误')
+	) {
 		return;
 	}
 
-	var flag =  GetQueryString('flag');
+	var flag = GetQueryString('flag');
 	if (GetQueryString('rowGuid') == null) {
 		$.ajax({
 			url: '/wx/sys/hosaddress/add',
@@ -33,12 +33,14 @@ if(panNull($('#hosUserName').val(),'用户名不能为空')
 			dataType: 'JSON',
 			success: function(res) {
 				if (res.code == '0') {
-					if(flag){
-						location.href = "../../../../WX_OrderSystem/pages/order/orderLocationList.html";
-						$.toast("保存成功",1500);
-					}else{
-						location.href = "../../../../WX_OrderSystem/pages/addressMG/address.html";
-						$.toast("保存成功",1500);
+					if (flag) {
+						$.toast("保存成功", function() {
+							location.href = "../../../../WX_OrderSystem/pages/order/orderLocationList.html";
+						});
+					} else {
+						$.toast("保存成功", function() {
+							location.href = "../../../../WX_OrderSystem/pages/addressMG/address.html";
+						});
 					}
 				}
 				if (res.code == '500') {
@@ -55,15 +57,16 @@ if(panNull($('#hosUserName').val(),'用户名不能为空')
 			dataType: 'JSON',
 			success: function(res) {
 				if (res.code == '0') {
-					location.href = "../../../../WX_OrderSystem/pages/addressMG/address.html";
-					$.toast("保存成功",1500);
+					$.toast("保存成功", function() {
+						location.href = "../../../../WX_OrderSystem/pages/addressMG/address.html";
+					});
 				}
 				if (res.code == '500') {
 					console.log(res.msg);
 				}
 			}
 		});
-	} 
+	}
 
 
 })
@@ -94,8 +97,8 @@ function GetQueryString(name) {
 function panNull(ele, str) {
 	if (ele == null || ele == '') {
 		$.alert(str, '警告');
-		return  true;
-	}else {
+		return true;
+	} else {
 		return false;
 	}
 }
@@ -105,7 +108,7 @@ function checkName(ele, str) {
 	if (!patrn.test(ele)) {
 		$.alert(str, '警告');
 		return true;
-	} else{
+	} else {
 		return false;
 	}
 }
@@ -121,12 +124,12 @@ function checkMobile(ele, str) {
 	}
 }
 
-function checkAddress(ele,str){
+function checkAddress(ele, str) {
 	var patrn = /^[\u4e00-\u9fa5_a-zA-Z0-9]+$/;
-	if(!patrn.test(ele)){
-		$.alert(str,'警告');
+	if (!patrn.test(ele)) {
+		$.alert(str, '警告');
 		return true;
-	}else{
+	} else {
 		return false;
 	}
 }

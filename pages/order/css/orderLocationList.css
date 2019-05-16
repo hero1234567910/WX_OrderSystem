@@ -10,7 +10,7 @@
 .add-ad{
 	height: 100px;
 	width: 100%;
-	position: absolute;
+	/* position: absolute; */
     width: 100%;
     bottom: 50px;
     padding-left: auto;

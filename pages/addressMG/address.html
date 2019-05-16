@@ -5,35 +5,36 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="../../lib/weui.min.css" />
 		<link rel="stylesheet" href="../../css/jquery-weui.min.css" />
-		<link rel="stylesheet" href="css/address.css"/>
-		<link rel="stylesheet" href="../../css/local.css"/>
+		<link rel="stylesheet" href="../../css/local.css" />
+		<link rel="stylesheet" href="css/address.css" />
 		<title>地址管理列表</title>
 	</head>
 	<body>
 		<div class="weui-panel__hd">地址列表</div>
 		<div class="weui-cells" id="vueConfig">
-		  <a class="weui-cell weui-cell_access" href="javaScript:;" onclick="addressChange()" v-for="item in addressList" v-cloak>
-		    <div class="weui-cell__bd">
+			<a class="weui-cell weui-cell_access" href="javaScript:;" onclick="addressChange()" v-for="item in addressList"
+			 v-cloak>
+				<div class="weui-cell__bd">
 					<div class="loca-name" style="display: none;">
 						<p id="rowGuid">{{item.rowGuid}}</p>
 					</div>
-					
-		      <div class="loca-x">
-		      	<p class="p-location"><em id="inpatient">{{item.hosInpatient}}</em><em id="storey">{{item.hosStorey}}</em><em id="bedNumber">{{item.hosBedNumber}}</em></p>
-		      </div>
-		      <div class="loca-name" >
-		      	<p id="userName">{{item.hosUserName}}</p>
-		      </div>
-		      <div class="loca-mobile">
-		      	<p id="userMobile">{{item.hosUserMobile}}</p>
-		      </div>
-		    </div>
-		    <div class="weui-cell__ft"></div>
-		  </a>
-		</div>
-		
-		<div class="add-ad">
-			<img src="../../img/加地址.svg" width="25%" id="addressAdd"/>
+
+					<div class="loca-x">
+						<p class="p-location"><em id="inpatient">{{item.hosInpatient}}</em><em id="storey">{{item.hosStorey}}</em><em id="bedNumber">{{item.hosBedNumber}}</em></p>
+					</div>
+					<div class="loca-name">
+						<p id="userName">{{item.hosUserName}}</p>
+					</div>
+					<div class="loca-mobile">
+						<p id="userMobile">{{item.hosUserMobile}}</p>
+					</div>
+				</div>
+				<div class="weui-cell__ft"></div>
+			</a>
+			<div class="weui-cell"></div>
+			<div class="add-ad">
+				<img src="../../img/加地址.svg" width="25%" id="addressAdd" />
+			</div>
 		</div>
 		<script src="../../lib/jquery-2.1.4.js"></script>
 		<script src="../../js/jquery-weui.min.js"></script>

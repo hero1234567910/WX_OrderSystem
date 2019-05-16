@@ -10,9 +10,17 @@
 .add-ad{
 	height: 100px;
 	width: 100%;
-	position: absolute;
+	/* position: absolute; */
     width: 100%;
     bottom: 50px;
     padding-left: auto;
     text-align: center;
+}
+.weui-panel__hd{
+	background-color: #efeff4;
+	font-size: initial;
+	font-weight: 600;
+}
+html{
+	overflow: auto;
 }
