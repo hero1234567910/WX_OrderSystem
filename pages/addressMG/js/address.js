@@ -19,7 +19,6 @@ var vm = new Vue({
 			var hosUserGuid = localStorage.getItem('userGuid');
 			//根据用户行标获取地址列表
 			$.ajax({
-				async: false,
 				url: '/wx/sys/hosaddress/getAddressListByUserGuid',
 				contentType: 'application/json;charset=utf-8',
 				method: 'post',
