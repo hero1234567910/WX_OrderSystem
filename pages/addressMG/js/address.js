@@ -49,12 +49,12 @@ $('.weui-cell.weui-cell_access').click(function(){
 	var hosInpatient = $(this).children('.weui-cell__bd').children('.loca-x').children('.p-location').children('#inpatient').text().trim();
 	var hosStorey = $(this).children('.weui-cell__bd').children('.loca-x').children('.p-location').children('#storey').text().trim();
 	var hosBedNumber = $(this).children('.weui-cell__bd').children('.loca-x').children('.p-location').children('#bedNumber').text().trim();
-	location.href = "../order/orderLocation.html?hosUserName=" + hosUserName + "&hosUserMobile=" + hosUserMobile +
+	window.top.location.href = "../order/orderLocation.html?hosUserName=" + hosUserName + "&hosUserMobile=" + hosUserMobile +
 		"&hosInpatient=" + hosInpatient +
 		"&hosStorey=" + hosStorey + "&hosBedNumber=" + hosBedNumber + "&rowGuid=" + rowGuid;
 })
 
 
 $('#addressAdd').click(function() {
-	location.href = "../order/orderLocation.html";
+	window.top.location.href = "../order/orderLocation.html";
 });
