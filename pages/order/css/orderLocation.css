@@ -1,7 +1,7 @@
-.weui-panel__hd {
-	color: grey;
-	font-size: 20px;
-	background-color: #F5F5F5;
+.weui-panel__hd{
+	background-color: #efeff4;
+	font-size: initial;
+	font-weight: 600;
 }
 
 .weui-cell__ft{
@@ -19,15 +19,14 @@
     padding-right: 1em;
 }
 .page {
-
+	
 }
 .btn_bottom {
-    position: fixed;
+    position: absolute;
     width: 94%;
-	height: 30px;
-    bottom: 0;
-	margin-bottom: 20%;
-	
+	height: 100px;
+    bottom: 90;
+	margin-bottom: 10%;
 }
 
 .weui-label1{

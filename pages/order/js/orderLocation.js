@@ -33,12 +33,12 @@ if(panNull($('#hosUserName').val(),'用户名不能为空')
 			dataType: 'JSON',
 			success: function(res) {
 				if (res.code == '0') {
-					console.log(res); //打印服务端返回的数据(调试用)
-					console.log(flag,222)
 					if(flag){
 						location.href = "../../../../WX_OrderSystem/pages/order/orderLocationList.html";
+						$.toast("保存成功",1500);
 					}else{
 						location.href = "../../../../WX_OrderSystem/pages/addressMG/address.html";
+						$.toast("保存成功",1500);
 					}
 				}
 				if (res.code == '500') {
@@ -55,8 +55,8 @@ if(panNull($('#hosUserName').val(),'用户名不能为空')
 			dataType: 'JSON',
 			success: function(res) {
 				if (res.code == '0') {
-					console.log("修改成功");
 					location.href = "../../../../WX_OrderSystem/pages/addressMG/address.html";
+					$.toast("保存成功",1500);
 				}
 				if (res.code == '500') {
 					console.log(res.msg);

@@ -70,7 +70,11 @@ var hosStorey = GetQueryString('hosStorey');
 var hosBedNumber = GetQueryString('hosBedNumber');
 
 if(hosInpatient==null){
-	$('#hosUserName').val("地址为空，请添加地址");
+	$('#hosUserName').val(localStorage.getItem('defaultName'));
+	$('#hosUserMobile').val(localStorage.getItem('defaultMobile'));
+	$('#hosInpatient').val(localStorage.getItem('defaultInpatient'));
+	$('#hosStorey').val(localStorage.getItem('defaultStorey'));
+	$('#hosBedNumber').val(localStorage.getItem('defaultBedNumber'));
 }else{
 	$('#hosUserName').val(hosUserName);
 	$('#hosUserMobile').val(hosUserMobile);

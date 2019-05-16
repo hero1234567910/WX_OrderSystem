@@ -27,9 +27,13 @@ var vm = new Vue({
 				data: hosUserGuid,
 				dataType: 'JSON',
 				success: function(res) {
-					console.log(res);
 					if (res.code == '0') {
 						self.addressList = res.data;
+						localStorage.setItem('defaultName',res.data[0].hosUserName);
+						localStorage.setItem('defaultMobile',res.data[0].hosUserMobile);
+						localStorage.setItem('defaultInpatient',res.data[0].hosInpatient);
+						localStorage.setItem('defaultStorey',res.data[0].hosStorey);
+						localStorage.setItem('defaultBedNumber',res.data[0].hosBedNumber);
 					}
 					if (res.code == '500') {
 //						layer.msg(res.msg);
