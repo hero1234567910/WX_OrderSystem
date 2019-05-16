@@ -3,7 +3,7 @@ var vm = new Vue({
 	el: '#vueConfig',
 	data: {
 		// 数据创建
-		roles: []
+		addressList: []
 	},
 	created() {
 		this.getAddressList()
