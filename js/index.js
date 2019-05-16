@@ -3,7 +3,7 @@ $().ready(function(){
 	var code = GetQueryString('code');
 	//获取用户授权信息
 	$.ajax({
-	    url: '/sys/wx/common/code2Token',
+	    url: '/wx/common/code2Token',
 	    contentType: 'application/json;charset=utf-8',
 	    method: 'post',
 	    dataType: 'JSON',
@@ -12,7 +12,7 @@ $().ready(function(){
 	        if (res.code == '0') {
 	            //存储用户信息
 	            localStorage.setItem("userGuid",res.data.rowGuid);
-	            localStorage.setItem("hosHeadImgUrl",res.data.hosHeadImgUrl);
+	            localStorage.setItem("hosHeadImgUrl",res.data.headimgurl);
 	            localStorage.setItem("hosUserName",res.data.hosUserName);
 	        }
 	        else{

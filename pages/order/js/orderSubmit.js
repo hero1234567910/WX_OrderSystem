@@ -12,19 +12,22 @@ var vm = new Vue({
     },
     created() {
         this.getGoodsPrice();
-		
     },
     methods: {
     	getGoodsPrice(){
     		let self = this;
     		var array = JSON.parse(localStorage.getItem('orderItem'));
+    		var orderPrice = 0;
     		for(var i=0;i<array.length;i++){
     			array[i]['totalPrice'] = accMul(array[i].goodsCount,array[i].goodsPrice);
+    			orderPrice = accAdd(orderPrice,array[i]['totalPrice'])
     		}
 			self.orderItem = array;
-			self.orderPrice = GetQueryString('orderPrice');
-			console.log(self.orderPrice);
+			self.orderPrice = orderPrice;
+			
     	}
+    	
+    	
 //      getGoodsList() {
 //          let self = this;
 //          //获取订餐用户对象
@@ -106,7 +109,7 @@ $('#submitOrder').click(function(){
 		return;
 	}
 	$.ajax({
-	        url: '/wx/sys/wx/common/placeOrder',
+	        url: '/wx/common/placeOrder',
 	        contentType: 'application/json;charset=utf-8',
 	        method: 'post',
 	        data:JSON.stringify(params),
@@ -133,6 +136,14 @@ function accMul(arg1,arg2){
 	try{m+=s2.split(".")[1].length}catch(e){}
 	return Number(s1.replace(".",""))*Number(s2.replace(".",""))/Math.pow(10,m)
 }
+//相加
+function accAdd(arg1,arg2){
+	var r1,r2,m;
+	try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0}
+	try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0}
+	m=Math.pow(10,Math.max(r1,r2))
+	return (arg1*m+arg2*m)/m
+}
 
 //判空
 function panNull(ele,str){
@@ -153,3 +164,5 @@ function GetQueryString(name){
 function addressChange(){
 	window.top.location.href = "../order/orderLocationList.html";
 }
+ 
+ 

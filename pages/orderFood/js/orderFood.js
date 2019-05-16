@@ -144,7 +144,6 @@ $('body').on('click','.add-shopCar-d',function(){
 $('#toSubmit').click(function(){
 	//获取金额
 	var orderPrice = $('#totalpriceshow').text();
-	console.log(orderPrice);
 	if(orderPrice == 0){
 		$.alert("请至少选择一个菜品", "警告");
 		return;
