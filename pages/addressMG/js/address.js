@@ -44,8 +44,7 @@ var vm = new Vue({
 
 });
 
-$('.weui-cell.weui-cell_access').click(function(){
-	
+$('body').on('click','.weui-cell.weui-cell_access',function(){
 	console.log(this.te)
 	var rowGuid = $(this).children('.weui-cell__bd').children('.loca-name').children('#rowGuid').text().trim();
 	var hosUserName = $(this).children('.weui-cell__bd').children('.loca-name').children('#userName').text().trim();

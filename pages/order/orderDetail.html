@@ -28,21 +28,23 @@
 				</a>
 				<div class="weui-cell">
 					<div class="weui-cell__bd">
-						<p>商品金额: ¥{{item.totalMoney}}</p>
+						<p>商品金额: </p>
 					</div>
+					<div class="weui-cell__ft">¥{{item.totalMoney}}</div>
 				</div>
 			</div>
 			<div class="weui-cell">
 				<div class="weui-cell__bd">
-					<p>总计金额: ¥{{orderData.orderMoney}}</p>
+					<p>总计金额: </p>
 				</div>
+				<div class="weui-cell__ft">¥{{orderData.orderMoney}}</div>
 			</div>
 			<div class="weui-panel__hd">订单信息</div>
 			<div class="weui-cell">
 				<div class="weui-cell__bd">
-					<p>订单编号:</p>
+					<p style="width: 90px;">订单编号:</p>
 				</div>
-				<div class="weui-cell__ft">{{orderData.orderNumber}}</div>
+				<div class="weui-cell__ft" style="font-size: 15px;">{{orderData.orderNumber}}</div>
 			</div>
 			<div class="weui-cell">
 				<div class="weui-cell__bd">
@@ -59,7 +61,7 @@
 		</div>
 		<div class="weui-cell">
 			<div class="weui-cell__bd">
-				<p>地址:</p>
+				<p style="width: 70px;">地址:</p>
 			</div>
 			<div class="weui-cell__ft">{{orderData.consigneeInpatient}}{{orderData.consigneeStorey}}{{orderData.consigneeBedNumber}}</div>
 		</div>
