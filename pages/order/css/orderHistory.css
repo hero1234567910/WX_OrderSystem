@@ -1,7 +1,7 @@
-.weui-panel__hd {
-	color: grey;
-	font-size: 20px;
-	background-color: #F5F5F5;
+.weui-panel__hd{
+	background-color: #efeff4;
+	font-size: initial;
+	font-weight: 600;
 }
 
 .weui-cells {
@@ -13,4 +13,7 @@
 .weui-media-box__title{
 	font-size: initial;
 	font-weight: 600;
+}
+html{
+	overflow: auto;
 }

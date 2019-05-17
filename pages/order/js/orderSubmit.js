@@ -112,7 +112,7 @@ $('#submitOrder').click(function() {
 	params['consigneeInpatient'] = $('#hosInpatient').text().trim();
 	params['consigneeStorey'] = $('#hosStorey').text().trim();
 	params['consigneeBedNumber'] = $('#hosBedNumber').text().trim();
-	params['remark'] = $('#remark').text().trim();
+	params['remark'] = $('#remark').val();
 	params['reserveTime'] = localStorage.getItem('orderDate');
 	params['reserveTimeSuffix'] = $('#reserveTime').text().trim();
 	params['orderMoney'] = $('#totalMoney').text().trim();
