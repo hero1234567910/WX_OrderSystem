@@ -140,10 +140,13 @@ $('#submitOrder').click(function() {
 			if (res.code == '0') {
 				//下订单
 				localStorage.removeItem('orderItem');
-				location.href = "../../../../WX_OrderSystem/pages/pay/pay.html"
+				$.toast("下单成功", function() {
+					location.href = "../../../../WX_OrderSystem/pages/pay/pay.html";
+				});
 			}
 			if (res.code == '500') {
-				console.log(res.msg);
+				$.toast(res.msg, "forbidden");
+				//console.log(res.msg);
 			}
 		}
 	});
