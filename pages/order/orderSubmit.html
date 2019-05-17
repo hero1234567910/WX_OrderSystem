@@ -22,19 +22,26 @@
 				</a>-->
 				<a class="weui-cell weui-cell_access" href="javascript:;" onclick="addressChange()" v-cloak style="height: 70px;">
 					<div class="weui-cell__bd">
-						<div class="loca-x" style="white-space: nowrap;width: 60px;">
-							<td><input class="weui-input" id="hosInpatient" name="hosInpatient" type="text" readonly="readonly" /><input
+						<div class="loca-x" >
+							<div class="loca-x">
+								<p class="p-location"><em id="hosInpatient">{{hosInpatient}}</em><em id="hosStorey">{{hosStorey}}</em><em id="hosBedNumber">{{hosBedNumber}}</em></p>
+							</div>
+							<div class="loca-name">
+								<p id="hosUserName">{{hosUserName}}</p>
+							</div>
+							<div class="loca-mobile">
+								<p id="hosUserMobile">{{hosUserMobile}}</p>
+							</div>
+							<!-- <td><input class="weui-input" id="hosInpatient" name="hosInpatient" type="text" readonly="readonly" /><input
 								 class="weui-input" id="hosStorey" name="hosStorey" type="text" readonly="readonly" /><input class="weui-input"
-								 id="hosBedNumber" name="hosBedNumber" type="text" readonly="readonly" /></td>
+								 id="hosBedNumber" name="hosBedNumber" type="text" readonly="readonly" /></td> -->
 						</div>
-						<div class="loca-name" style="white-space: nowrap;width: 60px;">
-							<!-- <p id="hosUserName" name="hosUserName"></p> -->
+						<!-- <div class="loca-name" style="white-space: nowrap;width: 60px;">
 							<input class="weui-input" id="hosUserName" name="hosUserName" type="text" readonly="readonly">
 						</div>
 						<div class="loca-mobile" style="white-space: nowrap;width: 130px;">
-							<!-- <p id="hosUserMobile" name="hosUserMobile"></p> -->
 							<input class="weui-input" id="hosUserMobile" name="hosUserMobile" type="tel" readonly="readonly">
-						</div>
+						</div> -->
 					</div>
 					<div class="weui-cell__ft"></div>
 				</a>
