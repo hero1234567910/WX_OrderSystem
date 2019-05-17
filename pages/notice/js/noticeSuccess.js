@@ -5,9 +5,9 @@
 
 $('#returnIndex').click(function(){
 	//清除缓存
-	location.href="../../../../WX_OrderSystem/index.html"
+	location.href="../../../../WXOrderSystem/index.html"
 })
 
 $('#returnOrderFood').click(function(){
-	location.href="../../../../WX_OrderSystem/main.html"
+	location.href="../../../../WXOrderSystem/main.html"
 })

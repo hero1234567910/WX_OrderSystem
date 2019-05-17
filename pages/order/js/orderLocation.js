@@ -35,11 +35,11 @@ $('#toSave').click(function() {
 				if (res.code == '0') {
 					if (flag) {
 						$.toast("保存成功", function() {
-							location.href = "../../../../WX_OrderSystem/pages/order/orderLocationList.html";
+							location.href = "../../../../WXOrderSystem/pages/order/orderLocationList.html";
 						});
 					} else {
 						$.toast("保存成功", function() {
-							location.href = "../../../../WX_OrderSystem/pages/addressMG/address.html";
+							location.href = "../../../../WXOrderSystem/pages/addressMG/address.html";
 						});
 					}
 				}
@@ -58,7 +58,7 @@ $('#toSave').click(function() {
 			success: function(res) {
 				if (res.code == '0') {
 					$.toast("保存成功", function() {
-						location.href = "../../../../WX_OrderSystem/pages/addressMG/address.html";
+						location.href = "../../../../WXOrderSystem/pages/addressMG/address.html";
 					});
 				}
 				if (res.code == '500') {

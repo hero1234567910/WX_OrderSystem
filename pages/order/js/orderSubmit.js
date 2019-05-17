@@ -141,7 +141,7 @@ $('#submitOrder').click(function() {
 				//下订单
 				localStorage.removeItem('orderItem');
 				$.toast("下单成功", function() {
-					location.href = "../../../../WX_OrderSystem/pages/pay/pay.html";
+					location.href = "../../../../WXOrderSystem/pages/pay/pay.html";
 				});
 			}
 			if (res.code == '500') {
