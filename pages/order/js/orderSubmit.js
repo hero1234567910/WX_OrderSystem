@@ -78,7 +78,6 @@ var vm = new Vue({
 })
 
 $().ready(function() {
-
 })
 
 var hosUserName = GetQueryString('hosUserName');
@@ -140,13 +139,18 @@ $('#submitOrder').click(function() {
 			if (res.code == '0') {
 				//下订单
 				localStorage.removeItem('orderItem');
+				//拼接参数
+				var appId = encrypt(res.data.appId);
+				var nonceStr = encrypt(res.data.nonceStr);
+				var pack = encrypt(res.data.package);
+				var paySign = encrypt(res.data.paySign);
+				var timestamp = encrypt(res.data.timeStamp+"");
 				$.toast("下单成功", function() {
-					location.href = "../../../../WXOrderSystem/pages/pay/pay.html";
+					location.href = "../../../../WXOrderSystem/pages/pay/pay.html?appId="+appId+"&nonceStr="+nonceStr+"&pack="+pack+"&paySign="+paySign+"&timeStamp="+timestamp;
 				});
 			}
 			if (res.code == '500') {
 				$.toast(res.msg, "forbidden");
-				//console.log(res.msg);
 			}
 		}
 	});
