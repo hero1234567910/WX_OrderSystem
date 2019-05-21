@@ -20,7 +20,42 @@ var vm = new Vue({
 				}
 			}
 			localStorage.removeItem('orderList');
-			// console.log(self.orderData);
+			console.log(self.orderData.orderStatusText == '待支付')
+		},
+		toSubmit(){
+			let self = this;
+			//交互，提交订单，发起微信统一订单
+			var params = {};
+			//准备参数
+			params['orderUserGuid'] = localStorage.getItem('userGuid');
+			params['orderMoney'] = self.orderData.orderMoney;
+			params['merchantNumber'] = self.orderData.merchantNumber;
+			
+			$.ajax({
+				url: '/wx/common/placeOrderAgain',
+				contentType: 'application/json;charset=utf-8',
+				method: 'post',
+				data: JSON.stringify(params),
+				dataType: 'JSON',
+				success: function(res) {
+					if (res.code == '0') {
+						//下订单
+						localStorage.removeItem('orderItem');
+						//拼接参数
+						var appId = encrypt(res.data.appId);
+						var nonceStr = encrypt(res.data.nonceStr);
+						var pack = encrypt(res.data.package);
+						var paySign = encrypt(res.data.paySign);
+						var timestamp = encrypt(res.data.timeStamp+"");
+						$.toast("下单成功", function() {
+							location.href = "../../../../WXOrderSystem/pages/pay/pay.html?appId="+appId+"&nonceStr="+nonceStr+"&pack="+pack+"&paySign="+paySign+"&timeStamp="+timestamp;
+						});
+					}
+					if (res.code == '500') {
+						$.toast(res.msg, "forbidden");
+					}
+				}
+			});
 		}
 	}
 });

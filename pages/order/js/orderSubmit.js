@@ -3,7 +3,7 @@ var vm = new Vue({
 	el: '#vueConfig',
 	data: {
 		// 数据创建
-		orderDate: localStorage.getItem('orderDate') + ' ' + localStorage.getItem('mealPoint'),
+		orderDate: '',
 		orderItem: [],
 		orderPrice: '',
 		hosInpatient: '',
@@ -17,8 +17,15 @@ var vm = new Vue({
 	},
 	created() {
 		this.getGoodsPrice();
+		this.getTime();
 	},
 	methods: {
+		getTime(){
+			let self = this;
+			var now = new Date();
+			var time = now.getTime() + 1000*60*30;
+			self.orderDate = localStorage.getItem('orderDate') +" "+frontOneHour('hh:mm:ss',new Date(time));
+		},
 		getGoodsPrice() {
 			let self = this;
 			var array = JSON.parse(localStorage.getItem('orderItem'));
@@ -208,3 +215,21 @@ function GetQueryString(name) {
 function addressChange() {
 	window.top.location.href = "../order/orderLocationList.html";
 }
+
+//时间格式化
+function frontOneHour (fmt,currentTime) {
+    var o = {
+      'M+': currentTime.getMonth() + 1, // 月份
+      'd+': currentTime.getDate(), // 日
+      'h+': currentTime.getHours(), // 小时
+      'm+': currentTime.getMinutes(), // 分
+      's+': currentTime.getSeconds(), // 秒
+      'q+': Math.floor((currentTime.getMonth() + 3) / 3), // 季度
+      'S': currentTime.getMilliseconds() // 毫秒
+    }
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (currentTime.getFullYear() + '').substr(4 - RegExp.$1.length))
+    for (var k in o) {
+      if (new RegExp('(' + k + ')').test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)))
+    }
+    return fmt
+  }
