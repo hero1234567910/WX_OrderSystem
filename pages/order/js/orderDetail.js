@@ -20,7 +20,7 @@ var vm = new Vue({
 				}
 			}
 			localStorage.removeItem('orderList');
-			console.log(self.orderData);
+			// console.log(self.orderData);
 		}
 	}
 });
