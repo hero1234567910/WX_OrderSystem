@@ -8,6 +8,11 @@
 	font-size: 20px;
 }
 
+weui-cell__ft1:after{
+	display: none;
+	font-size: 20px;
+}
+
 .weui-cell__bd{
 	font-size: 20px;
 }

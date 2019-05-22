@@ -54,6 +54,7 @@ line-height: 3em;
 }
 
 .nav a {
+	font-size: 13px;
 display: block; 
 /*width: 10em;*/ 
 text-align: center;
