@@ -17,7 +17,7 @@
 			</div>
 			<div class="orderFood-hd-middle">
 				<div id="s" style="margin-right: 10px;position:relative; white-space:nowrap; overflow:hidden;height: 30px;line-height: 30px;"> 
-					<div id="noticeList" style="position:absolute; top:0; height:20px;"><span>恭喜恭喜恭喜</span><span>ig夺冠，我们是冠军！</span><span>www.jb51.net</span></div> 
+					<div id="noticeList" style="position:absolute; top:0; height:20px;"><span id="ms">食堂订餐</span></div> 
 				</div>
 			</div>
 		</div>
@@ -45,6 +45,9 @@
 				            			<input style="display: none;" :value="goods.rowGuid" class="orderFood-item-inp"/>
 				            			<div class="orderFood-item-h" v-cloak>
 				            				{{goods.goodsName}}
+				            			</div>
+				            			<div class="orderFood-item-detail" style="font-size: 14px;font-family: cursive;color: darkgreen;font-style: normal;height: 40px;width: calc(100vw - 196px);overflow: hidden;word-wrap: break-word;">
+				            				{{goods.goodsInfo}}
 				            			</div>
 				            			<div class="orderFood-item-d">
 				            				<div class="orderFood-item-d-left">

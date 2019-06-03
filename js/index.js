@@ -45,7 +45,9 @@ $().ready(function(){
 	        }
 	    }
 	});
-	
+	//获取通告信息
+	var info = getInforMation();
+	$('#ms').text(info.trim());
 });
 
 //获取url中的参数
@@ -69,5 +71,7 @@ function toMain(){
 	localStorage.setItem('mealPoint',meal);
 	location.href="main.html";
 }
+
+
 
 

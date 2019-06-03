@@ -19,7 +19,6 @@ var vm = new Vue({
 //          }
             //获取订餐时间点分类code
            	var code = localStorage.getItem('goodsCode');
-           	console.log(code)
             //根据分类code获取菜品列表
             $.ajax({
                 url: '/wx/sys/hosgoodstype/getHosGoodsByPcode',
@@ -30,7 +29,6 @@ var vm = new Vue({
                 success: function (res) {
                     if (res.code == '0') {
                         self.goodsTypeList = res.data;
-                        console.log(self.goodsTypeList)
                     }
                     if(res.code == '500'){
                     	
@@ -41,24 +39,11 @@ var vm = new Vue({
     }
 
 })
-////jquery实现平滑过渡效果（锚点）
-// $(document).ready(function() {  
-//	  $('a[href*=#],area[href*=#]').click(function() {
-//	  	console.log("aaaaaaa")
-//	    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-//	      var $target = $(this.hash);
-//	      $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
-//	      if ($target.length) {
-//	        var targetOffset = $target.offset().top;
-//	        $('html,body').animate({
-//	          scrollTop: targetOffset
-//	        },
-//	        1000);
-//	        return false;
-//	      }
-//	    }
-//	})
-//});
+$().ready(function(){
+	//获取通告信息
+	var info = getInforMation();
+	$('#ms').text(info.trim());
+})
 
 var orderItem = new Array;
 

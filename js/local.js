@@ -33,6 +33,26 @@ function dcrypt(data){
     return CryptoJS.AES.decrypt(data, key, {iv:iv, mode:CryptoJS.mode.CBC, padding: CryptoJS.pad.ZeroPadding}).toString(CryptoJS.enc.Utf8);
 }
 
+
+//获取通告信息
+function getInforMation(){
+	var info = '';
+	$.ajax({
+		async:false,
+		url: '/wx/sys/hosuser/getInforMation',
+        contentType: 'application/json;charset=utf-8',
+        method: 'get',
+        dataType: 'JSON',
+        success: function (res) {
+            if (res.code = '0') {
+            	info = res.data;
+            } else
+                alert(res.msg);
+        }
+	});
+	return info;
+}
+
 ////模块初始化
 //var init=function () {
 //  key = CryptoJS.enc.Utf8.parse(CryptoJS.MD5(ym.hezubao).toString());
