@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="../../css/local.css" />
 	</head>
 	<body>
-		<a class="target-fix" name="a-<?php $a->id(); ?>"></a>
+		<a class="target-fix"></a>
 		<div class="orderFood-hd">
 			<div class="orderFood-hd-left">
 				<img src="../../img/最新消息.png" style="width: 95%;vertical-align: middle;"/>
@@ -31,12 +31,13 @@
 				</div>
 			</div>
 			<div class="orderFood-m-right">
-					<ul style="list-style:none;" v-for="item in goodsTypeList">
+					<ul style="list-style:none;" v-for="item in goodsTypeList" v-cloak>
 						<div :id="item.goodsType.rowGuid">
+							<!--<a name="about-us" style="position: relative;top: 10px;"></a>-->
 							<div class="orderFood-m-right-pane">
 								<p v-cloak>{{item.goodsType.typeName}}</p>
 							</div>
-				            <li v-for="goods in item.goodsList" class="">
+				            <li v-for="goods in item.goodsList" class="" v-cloak>
 				            	<div class="orderFood-item">
 				            		<div class="orderFood-item-left">
 				            			<img :src="goods.goodsUrl" class="goodsImg" width="120px" height="100px"/>
@@ -46,7 +47,7 @@
 				            			<div class="orderFood-item-h" v-cloak>
 				            				{{goods.goodsName}}
 				            			</div>
-				            			<div class="orderFood-item-detail" style="font-size: 14px;font-family: cursive;color: darkgreen;font-style: normal;height: 40px;width: calc(100vw - 196px);overflow: hidden;word-wrap: break-word;">
+				            			<div class="orderFood-item-detail" style="font-size: 14px;font-family: cursive;color: darkgreen;font-style: normal;height: 40px;width: calc(100vw - 196px);overflow: hidden;word-wrap: break-word;" v-cloak>
 				            				{{goods.goodsInfo}}
 				            			</div>
 				            			<div class="orderFood-item-d">

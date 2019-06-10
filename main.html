@@ -8,11 +8,21 @@
 		<link rel="stylesheet" href="css/jquery-weui.min.css" />
 		<link rel="stylesheet" href="css/local.css" />
 	</head>
+	<!--<style>
+		.target-fix {
+		    position: relative;
+		    top: 2px; // 偏移值
+		    display: block;
+		    height: 0;
+		    overflow: hidden;
+		}
+
+	</style>-->
 	<body>
 		<div class="weui-tab" style="">
-	      <div class="weui-tab__bd" style="height: 92%;">
+	      <div class="weui-tab__bd" style="height: 92%;position: absolute;width: 100%;">
 	        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active weui-iframe">
-	          <iframe class="larry-iframe" frameborder="0"  data-id='0' src="pages/orderFood/orderFood.html"></iframe>
+	          <iframe class="larry-iframe" frameborder="0"  data-id='0' src="pages/orderFood/orderFood.html" style="position: absolute;"></iframe>
 	        </div>
 	        <div id="tab2" class="weui-tab__bd-item weui-iframe">
 	          <iframe class="larry-iframe" frameborder="0" data-id='1' src="pages/order/orderHistory.html"></iframe>

@@ -28,6 +28,9 @@ var vm = new Vue({
 					console.log(res);
 					if (res.code == '0') {
 						self.addressList = res.data;
+						if(){
+							
+						}
 						localStorage.setItem('defaultName',res.data[0].hosUserName);
 						localStorage.setItem('defaultMobile',res.data[0].hosUserMobile);
 						localStorage.setItem('defaultInpatient',res.data[0].hosInpatient);

@@ -21,6 +21,9 @@ $().ready(function(){
 	    }
 	});
 	
+	//如果扫码进入则设置为默认地址（不保存）
+	
+	
 	//获取select下拉框值
 	$.ajax({
 	    url: '/wx/sys/hosgoodstype/getTopGoodsType',

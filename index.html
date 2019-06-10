@@ -41,7 +41,9 @@
 			    <div class="swiper-slide"><img src="img/header.png" alt=""></div>
 			    <div class="swiper-slide"><img src="img/header.png" alt=""></div>
 			  </div>
+			  <div class="swiper-pagination"></div>
 			</div>
+			
 		</div>
 		<div style="padding: 5px 10px;">
 			<div class="notice-left">
@@ -87,14 +89,11 @@
 		<script type="text/javascript" src="js/local.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
 		<script>
-			$(".swiper-container").swiper({
-		        loop: true,
-		        autoplay: 3000,
-		        pagination:{
-		        	pagination: '.swiper-pagination',//分页容器的css选择器
-		        	paginationClickable : true,
-		        }
-		    });
+		    var mySwiper = new Swiper('.swiper-container',{
+		    	pagination : '.swiper-pagination',
+		    	loop: true,
+		        autoplay: 3000
+			})
 			//横向滚动
 			$("#s").textScroll();
 			//日期

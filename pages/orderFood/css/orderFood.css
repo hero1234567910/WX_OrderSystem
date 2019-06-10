@@ -21,13 +21,16 @@
 .orderFood-hd{
 	display: flex; /*设为伸缩容器*/
 	border-bottom: 1px solid #ececec;
-	/*position: absolute;
-    top: 0px;*/
+	position: absolute;
+    top: 0px;
+    width: 100%;
 }
 
 .orderFood-m{
 	display: flex; /*设为伸缩容器*/
 	height: calc(100vh - 119px);
+	top: 41px;
+	position: relative;
 }
 
 .orderFood-m-left{
@@ -152,10 +155,10 @@ background-color: hsla(0,0%,100%,.95)
 }
 .orderFood-m-right-pane{
 	background-color: #efefef;
-    padding-left: 40px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 23px;
+    padding-left: 30px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
 }
 .orderFood-m-left-list{
 	
@@ -166,10 +169,13 @@ background-color: hsla(0,0%,100%,.95)
     top: -92px;
     visibility: hidden;
 }*/
-.target-fix {
+/*.target-fix {
     position: relative;
-    top: -44px; // 偏移值
+    top: -10px; // 偏移值
     display: block;
     height: 0;
     overflow: hidden;
 }
+article.a-post:target{
+    padding-top:44px;
+}*/
