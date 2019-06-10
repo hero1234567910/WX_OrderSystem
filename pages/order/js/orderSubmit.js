@@ -23,8 +23,17 @@ var vm = new Vue({
 		getTime(){
 			let self = this;
 			var now = new Date();
-			var time = now.getTime() + 1000*60*30;
-			self.orderDate = localStorage.getItem('orderDate') +" "+frontOneHour('hh:mm:ss',new Date(time));
+			var time = now.getTime();
+			var resTime = new Date(Date.parse(localStorage.getItem('orderDate')));
+			// var resTime1 = new Date(Date.parse("2019/6/12 8:20"));
+			// // console.log(now);
+			//  console.log(resTime1);
+			// self.orderDate = localStorage.getItem('orderDate') +" "+frontOneHour('hh:mm:ss',new Date(time));
+			if(resTime>now){
+				self.orderDate = localStorage.getItem('orderDate') +" "+localStorage.getItem('mealPoint')+"(预定)";
+			}else{
+				self.orderDate = localStorage.getItem('orderDate') +" "+localStorage.getItem('mealPoint');
+			}
 		},
 		getGoodsPrice() {
 			let self = this;
