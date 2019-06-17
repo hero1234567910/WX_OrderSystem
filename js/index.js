@@ -22,8 +22,7 @@ $().ready(function(){
 	});
 	
 	//如果扫码进入则设置为默认地址（不保存）
-
-	var hosInpatient = GetQueryString('hosInpatient');
+	var hosInpatient =decodeURIComponent(GetQueryString('hosInpatient'));
 	var hosStorey = GetQueryString('hosStorey');
 	var hosBedNumber = GetQueryString('hosBedNumber');
 	localStorage.setItem("def_hosInpatient",hosInpatient);
@@ -63,7 +62,7 @@ $().ready(function(){
 function GetQueryString(name){
      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
      var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
-     if(r!=null)return  unescape(r[2]); return null;
+     if(r!=null)return  decodeURI(r[2]); return null;
 }
 
 function toMain(){
