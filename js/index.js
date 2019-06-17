@@ -22,7 +22,13 @@ $().ready(function(){
 	});
 	
 	//如果扫码进入则设置为默认地址（不保存）
-	
+
+	var hosInpatient = GetQueryString('hosInpatient');
+	var hosStorey = GetQueryString('hosStorey');
+	var hosBedNumber = GetQueryString('hosBedNumber');
+	localStorage.setItem("def_hosInpatient",hosInpatient);
+	localStorage.setItem("def_hosStorey",hosStorey);
+	localStorage.setItem("def_hosBedNumber",hosBedNumber);
 	
 	//获取select下拉框值
 	$.ajax({

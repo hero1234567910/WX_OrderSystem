@@ -75,8 +75,17 @@ var rowGuid = GetQueryString('rowGuid');
 var hosUserName = GetQueryString('hosUserName');
 var hosUserMobile = GetQueryString('hosUserMobile');
 var hosInpatient = GetQueryString('hosInpatient');
+if(hosInpatient==null){
+	hosInpatient=localStorage.getItem('def_hosInpatient');
+}
 var hosStorey = GetQueryString('hosStorey');
+if(hosStorey==null){
+	hosStorey=localStorage.getItem('def_hosStorey');
+}
 var hosBedNumber = GetQueryString('hosBedNumber');
+if(hosBedNumber==null){
+	hosBedNumber=localStorage.getItem('def_hosBedNumber');
+}
 
 
 $('#rowGuid').val(rowGuid);
