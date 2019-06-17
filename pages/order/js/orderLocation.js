@@ -74,23 +74,17 @@ $('#toSave').click(function() {
 var rowGuid = GetQueryString('rowGuid');
 var hosUserName = GetQueryString('hosUserName');
 var hosUserMobile = GetQueryString('hosUserMobile');
-var hosInpatient ;
-if(hosInpatient==null){
+var hosInpatient=GetQueryString('hosInpatient') ;
+if(hosInpatient==""){
 	hosInpatient=localStorage.getItem('def_hosInpatient');
-}else{
-	hosInpatient= GetQueryString('hosInpatient');
 }
-var hosStorey ;
-if(hosStorey==null){
+var hosStorey= GetQueryString('hosStorey') ;
+if(hosStorey==""){
 	hosStorey=localStorage.getItem('def_hosStorey');
-}else{
-	hosStorey= GetQueryString('hosStorey');
 }
-var hosBedNumber ;
-if(hosBedNumber==null){
+var hosBedNumber= GetQueryString('hosBedNumber');
+if(hosBedNumber==""){
 	hosBedNumber=localStorage.getItem('def_hosBedNumber');
-}else{
-	hosBedNumber= GetQueryString('hosBedNumber');
 }
 
 
