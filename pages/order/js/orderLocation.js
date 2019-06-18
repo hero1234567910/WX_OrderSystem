@@ -93,7 +93,7 @@ $().ready(function() {
   if (hosBedNumber == "null") {
     hosBedNumber = GetQueryString("hosBedNumber");
   }
-  alert(hosInpatient+" "+hosStorey+" "+hosBedNumber);
+  //alert(hosInpatient+" "+hosStorey+" "+hosBedNumber);
   $("#rowGuid").val(rowGuid);
   $("#hosUserName").val(hosUserName);
   $("#hosUserMobile").val(hosUserMobile);
