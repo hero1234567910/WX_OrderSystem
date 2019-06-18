@@ -62,7 +62,7 @@ $('.weui-cell.weui-cell_access').click(function(){
 
 
 $('#addressAdd').click(function() {
-	$.toast("操作成功");
+	//$.toast("操作成功");
 	$.toptip('操作成功', 'success');
 	var hosInpatient2 = localStorage.getItem("def_hosInpatient");
 	//console.log(hosInpatient2);

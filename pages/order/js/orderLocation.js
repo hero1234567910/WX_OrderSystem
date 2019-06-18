@@ -74,6 +74,7 @@ $("#toSave").click(function() {
 });
 
 $().ready(function() {
+  
   var rowGuid = GetQueryString("rowGuid");
   var hosUserName = GetQueryString("hosUserName");
   var hosUserMobile = GetQueryString("hosUserMobile");
@@ -92,6 +93,7 @@ $().ready(function() {
   if (hosBedNumber == "null") {
     hosBedNumber = GetQueryString("hosBedNumber");
   }
+  alert(hosInpatient+" "+hosStorey+" "+hosBedNumber);
   $("#rowGuid").val(rowGuid);
   $("#hosUserName").val(hosUserName);
   $("#hosUserMobile").val(hosUserMobile);
