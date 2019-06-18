@@ -22,7 +22,7 @@ $().ready(function(){
 	});
 	
 	//如果扫码进入则设置为默认地址（不保存）
-	var hosInpatient =decodeURIComponent(GetQueryString('hosInpatient'));
+	var hosInpatient =GetQueryString('hosInpatient');
 	var hosStorey = GetQueryString('hosStorey');
 	var hosBedNumber = GetQueryString('hosBedNumber');
 	localStorage.setItem("def_hosInpatient",hosInpatient);
