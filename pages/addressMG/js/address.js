@@ -62,6 +62,8 @@ $('body').on('click','.weui-cell.weui-cell_access',function(){
 
 
 $('#addressAdd').click(function() {
+	$.toast("操作成功");
+	$.toptip('操作成功', 'success');
 	var hosInpatient2 = localStorage.getItem("def_hosInpatient");
 	//console.log(hosInpatient2);
 	var hosStorey2 = localStorage.getItem("def_hosStorey");
