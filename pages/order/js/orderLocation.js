@@ -79,17 +79,17 @@ $().ready(function() {
   var hosUserMobile = GetQueryString("hosUserMobile");
   var hosInpatient = GetQueryString("hosInpatient2");
   //console.log(hosInpatient);
-  if (hosInpatient == null) {
+  if (hosInpatient == "null") {
     hosInpatient = GetQueryString("hosInpatient");
   }
 
   var hosStorey = GetQueryString("hosStorey2");
-  if (hosStorey == null) {
+  if (hosStorey == "null") {
     hosStorey = GetQueryString("hosStorey");
   }
   //console.log(hosStorey);
   var hosBedNumber = GetQueryString("hosBedNumber2");
-  if (hosBedNumber == null) {
+  if (hosBedNumber == "null") {
     hosBedNumber = GetQueryString("hosBedNumber");
   }
   $("#rowGuid").val(rowGuid);
