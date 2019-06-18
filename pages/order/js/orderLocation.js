@@ -77,18 +77,19 @@ $().ready(function() {
   var rowGuid = GetQueryString("rowGuid");
   var hosUserName = GetQueryString("hosUserName");
   var hosUserMobile = GetQueryString("hosUserMobile");
-  var hosInpatient = localStorage.getItem("def_hosInpatient");
-  if (hosInpatient == 'null') {
+  var hosInpatient = GetQueryString("hosInpatient2");
+  //console.log(hosInpatient);
+  if (hosInpatient == null) {
     hosInpatient = GetQueryString("hosInpatient");
   }
 
-  var hosStorey = localStorage.getItem("def_hosStorey");
-  if (hosStorey == 'null') {
+  var hosStorey = GetQueryString("hosStorey2");
+  if (hosStorey == null) {
     hosStorey = GetQueryString("hosStorey");
   }
-
-  var hosBedNumber = localStorage.getItem("def_hosBedNumber");
-  if (hosBedNumber == 'null') {
+  //console.log(hosStorey);
+  var hosBedNumber = GetQueryString("hosBedNumber2");
+  if (hosBedNumber == null) {
     hosBedNumber = GetQueryString("hosBedNumber");
   }
   $("#rowGuid").val(rowGuid);
@@ -99,28 +100,6 @@ $().ready(function() {
   $("#hosBedNumber").val(hosBedNumber);
 });
 
-// var rowGuid = GetQueryString("rowGuid");
-// var hosUserName = GetQueryString("hosUserName");
-// var hosUserMobile = GetQueryString("hosUserMobile");
-// var hosInpatient = GetQueryString("hosInpatient");
-// if (hosInpatient == null) {
-//   hosInpatient = localStorage.getItem("def_hosInpatient");
-// }
-// var hosStorey = GetQueryString("hosStorey");
-// if (hosStorey == "") {
-//   hosStorey = localStorage.getItem("def_hosStorey");
-// }
-// var hosBedNumber = GetQueryString("hosBedNumber");
-// if (hosBedNumber == "") {
-//   hosBedNumber = localStorage.getItem("def_hosBedNumber");
-// }
-
-// $("#rowGuid").val(rowGuid);
-// $("#hosUserName").val(hosUserName);
-// $("#hosUserMobile").val(hosUserMobile);
-// $("#hosInpatient").val(hosInpatient);
-// $("#hosStorey").val(hosStorey);
-// $("#hosBedNumber").val(hosBedNumber);
 
 //获取url中的参数
 function GetQueryString(name) {

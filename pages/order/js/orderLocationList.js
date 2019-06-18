@@ -62,5 +62,11 @@ $('.weui-cell.weui-cell_access').click(function(){
 
 
 $('#addressAdd').click(function() {
-	window.top.location.href = "../order/orderLocation.html?flag="+true;
+	var hosInpatient2 = localStorage.getItem("def_hosInpatient");
+	//console.log(hosInpatient2);
+	var hosStorey2 = localStorage.getItem("def_hosStorey");
+	//console.log(hosStorey2);
+	var hosBedNumber2 = localStorage.getItem("def_hosBedNumber");
+	window.top.location.href = "../order/orderLocation.html?flag="+true+"&hosInpatient2="+hosInpatient2+ "&hosStorey2=" + hosStorey2
+	+"&hosBedNumber2="+hosBedNumber2;
 });

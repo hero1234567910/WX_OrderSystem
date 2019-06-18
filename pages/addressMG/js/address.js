@@ -48,7 +48,7 @@ var vm = new Vue({
 });
 
 $('body').on('click','.weui-cell.weui-cell_access',function(){
-	console.log(this.te)
+	//console.log(this.te)
 	var rowGuid = $(this).children('.weui-cell__bd').children('.loca-name').children('#rowGuid').text().trim();
 	var hosUserName = $(this).children('.weui-cell__bd').children('.loca-name').children('#userName').text().trim();
 	var hosUserMobile = $(this).children('.weui-cell__bd').children('.loca-mobile').children('#userMobile').text().trim();
@@ -62,5 +62,11 @@ $('body').on('click','.weui-cell.weui-cell_access',function(){
 
 
 $('#addressAdd').click(function() {
-	window.top.location.href = "../order/orderLocation.html";
+	var hosInpatient2 = localStorage.getItem("def_hosInpatient");
+	//console.log(hosInpatient2);
+	var hosStorey2 = localStorage.getItem("def_hosStorey");
+	//console.log(hosStorey2);
+	var hosBedNumber2 = localStorage.getItem("def_hosBedNumber");
+	window.top.location.href = "../order/orderLocation.html?hosInpatient2="+hosInpatient2+ "&hosStorey2=" + hosStorey2
+	+"&hosBedNumber2="+hosBedNumber2;
 });
