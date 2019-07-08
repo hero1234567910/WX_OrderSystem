@@ -42,7 +42,7 @@ $().ready(function(){
                     var info = { "title": res.data[i].typeName, "value": res.data[i].goodsTypeCode};
                     datalist.push(info);
                 }
-                console.log(datalist)
+                // console.log(datalist)
                 $("#select1").select({
                     title: "选择饭点",
                     items: datalist
