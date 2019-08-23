@@ -82,16 +82,22 @@ $().ready(function() {
   // console.log(hosInpatient);
   if (hosInpatient == null) {
     hosInpatient = GetQueryString("hosInpatient");
+  }else if(GetQueryString("hosInpatient")=='null'){
+    hosInpatient ='';
   }
 
   var hosStorey = GetQueryString("hosStorey2");
   if (hosStorey == null) {
     hosStorey = GetQueryString("hosStorey");
+  }else if(GetQueryString("hosStorey")=='null'){
+    hosStorey='';
   }
   //console.log(hosStorey);
   var hosBedNumber = GetQueryString("hosBedNumber2");
   if (hosBedNumber == null) {
     hosBedNumber = GetQueryString("hosBedNumber");
+  }else if(GetQueryString("hosBedNumber")=='null'){
+    hosBedNumber='';
   }
   //alert(hosInpatient+" "+hosStorey+" "+hosBedNumber);
   $("#rowGuid").val(rowGuid);
