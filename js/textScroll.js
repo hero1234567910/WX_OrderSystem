@@ -1,4 +1,5 @@
-$.fn.textScroll=function(){ 
+//$添加参数 横向滚动
+$.fn.textScroll=function(){
 	var speed=60,flag=null,tt,that=$(this),child=that.children(); 
 	var p_w=that.width(), w=child.width(); 
 	child.css({left:p_w}); 
@@ -23,3 +24,4 @@ $.fn.textScroll=function(){
 	}); 
 	play(); 
 }
+//export default;
