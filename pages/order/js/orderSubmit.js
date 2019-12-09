@@ -77,7 +77,8 @@ var vm = new Vue({
       if (ele == true) {
         $.closePopup();
         self.payWay = "微信支付";
-        self.methodOfPayment = 0;
+		self.methodOfPayment = 0;
+		self.department = "";
       } else {
         $.closePopup();
         self.payWay = "货到付款";
@@ -88,7 +89,7 @@ var vm = new Vue({
           empty: false, // 是否允许为空
           onOK: function(input) {
             //点击确认
-            console.log(input.length);
+            //console.log(input.length);
             if (input.length > 15) {
               $.alert("科室名称过长", "提示");
               input = "";
