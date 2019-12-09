@@ -67,6 +67,12 @@
 		</div>
 		<div class="weui-cell">
 			<div class="weui-cell__bd">
+				<p>付款类型:</p>
+			</div>
+			<div class="weui-cell__ft">{{orderData.methodOfPayment |checkMethodOfPayment}}</div>
+		</div>
+		<div class="weui-cell">
+			<div class="weui-cell__bd">
 				<p>备注:</p>
 			</div>
 			<div class="weui-cell__ft">{{orderData.remark}}</div>
