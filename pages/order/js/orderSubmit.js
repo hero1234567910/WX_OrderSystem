@@ -33,7 +33,7 @@ var vm = new Vue({
       console.log(hosInpatient1);
       console.log(department1);
       if (hosInpatient1 == "" || hosInpatient1 == "null") {
-        self.payWay = "货到付款";
+        self.payWay = "本院职工";
         self.methodOfPayment = 1;
         self.department = department2;
       } else if (department1 == "" || department1 == "null") {
@@ -43,7 +43,7 @@ var vm = new Vue({
       }
 
       if (hosInpatient2 == "") {
-        self.payWay = "货到付款";
+        self.payWay = "本院职工";
         self.methodOfPayment = 1;
         self.department = department2;
       } else if (department2 == "") {
@@ -122,7 +122,7 @@ var vm = new Vue({
         self.department = "";
       } else {
         $.closePopup();
-        self.payWay = "货到付款";
+        self.payWay = "本院职工";
         $.prompt({
           title: "提示",
           text: "请输入您的科室名称",

@@ -12,7 +12,7 @@ var vm = new Vue({
 		if(value==0){
 			return "微信支付"
 		}else{
-			return "货到付款"
+			return "本院职工"
 		}
 	}
   },
