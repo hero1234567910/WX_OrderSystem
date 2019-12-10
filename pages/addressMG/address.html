@@ -1,46 +1,109 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="../../lib/weui.min.css" />
-		<link rel="stylesheet" href="../../css/jquery-weui.min.css" />
-		<link rel="stylesheet" href="../../css/local.css" />
-		<link rel="stylesheet" href="css/address.css" />
-		<title>地址管理列表</title>
-	</head>
-	<body>
-		<div class="weui-panel__hd">地址列表</div>
-		<div class="weui-cells" id="vueConfig">
-			<a class="weui-cell weui-cell_access" href="javaScript:;" onclick="addressChange()" v-for="item in addressList"
-			 v-cloak>
-				<div class="weui-cell__bd">
-					<div class="loca-name" style="display: none;">
-						<p id="rowGuid">{{item.rowGuid}}</p>
-					</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="../../lib/weui.min.css" />
+    <link rel="stylesheet" href="../../css/jquery-weui.min.css" />
+    <link rel="stylesheet" href="../../css/local.css" />
+    <link rel="stylesheet" href="css/address.css" />
+    <title>地址管理列表</title>
+  </head>
+  <body>
+    <div class="weui-panel__hd">地址列表</div>
+    <div class="weui-cells" id="vueConfig">
+      <a
+        class="weui-cell weui-cell_access"
+        href="javaScript:;"
+        onclick="addressChange()"
+        v-for="item in addressList"
+        v-cloak
+      >
+        <div class="weui-cell__bd">
+          <div class="loca-name" style="display: none;">
+            <p id="rowGuid">{{item.rowGuid}}</p>
+          </div>
 
-					<div class="loca-x">
-						<p class="p-location"><em id="inpatient">{{item.hosInpatient}}</em><em id="storey">{{item.hosStorey}}</em><em id="bedNumber">{{item.hosBedNumber}}</em></p>
-					</div>
-					<div class="loca-name">
-						<p id="userName">{{item.hosUserName}}</p>
-					</div>
-					<div class="loca-mobile">
-						<p id="userMobile">{{item.hosUserMobile}}</p>
-					</div>
-				</div>
-				<div class="weui-cell__ft"></div>
-			</a>
-			<div class="weui-cell"></div>
-			<div class="add-ad">
-				<img src="../../img/加地址.svg" width="25%" id="addressAdd" />
-			</div>
-		</div>
-		<script src="../../lib/jquery-2.1.4.js"></script>
-		<script src="../../js/jquery-weui.min.js"></script>
-		<script src="../../js/vue.js"></script>
-		<script src="../../lib/fastclick.js"></script>
-		<script src="../../js/local.js"></script>
-		<script src="js/address.js"></script>
-	</body>
+          <div class="loca-x">
+            <p class="p-location">
+              <em id="inpatient">{{item.hosInpatient}}</em
+              ><em id="storey">{{item.hosStorey}}</em
+              ><em id="bedNumber">{{item.hosBedNumber}}</em>
+            </p>
+          </div>
+          <div class="loca-name">
+            <p id="userName">{{item.hosUserName}}</p>
+          </div>
+          <div class="loca-mobile">
+            <p id="userMobile">{{item.hosUserMobile}}</p>
+          </div>
+        </div>
+        <div class="weui-cell__ft"></div>
+      </a>
+      <div class="weui-cell"></div>
+      <div class="add-ad">
+        <img
+          class="open-popup"
+          data-target="#workerSelect"
+          src="../../img/加地址.svg"
+          width="25%"
+        />
+      </div>
+      <div
+        id="workerSelect"
+        class="weui-popup__container popup-bottom"
+        style="z-index: 51;"
+      >
+        <div class="weui-popup__overlay"></div>
+        <div class="weui-popup__modal">
+          <div class="toolbar">
+            <div class="toolbar-inner">
+              <a href="javascript:;" class="picker-button close-popup">关闭</a>
+              <h1 class="title">请选择您的身份</h1>
+            </div>
+          </div>
+          <div class="modal-content">
+            <div class="weui-grids">
+              <a
+                href="javascript:;"
+                class="weui-grid js_grid"
+                data-id="dialog"
+                @click="selectFunction(true)"
+              >
+                <div class="weui-grid__icon">
+                  <img src="../../img/我的患者.png" alt="" />
+                </div>
+                <p class="weui-grid__label">
+                  在院患者
+                </p>
+              </a>
+              <a
+                href="javascript:;"
+                class="weui-grid js_grid"
+                data-id="progress"
+                @click="selectFunction(false)"
+              >
+                <div class="weui-grid__icon">
+                  <img src="../../img/人员5.png" alt="" />
+                </div>
+                <p class="weui-grid__label">
+                  在院职工
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../lib/jquery-2.1.4.js"></script>
+    <script src="../../js/jquery-weui.min.js"></script>
+    <script src="../../js/vue.js"></script>
+    <script src="../../lib/fastclick.js"></script>
+    <script src="../../js/local.js"></script>
+    <script src="js/address.js"></script>
+  </body>
 </html>

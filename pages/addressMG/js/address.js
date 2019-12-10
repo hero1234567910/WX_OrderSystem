@@ -28,20 +28,37 @@ var vm = new Vue({
 					console.log(res);
 					if (res.code == '0') {
 						self.addressList = res.data;
-						// if(){
-						// 	
-						// }
 						localStorage.setItem('defaultName',res.data[0].hosUserName);
 						localStorage.setItem('defaultMobile',res.data[0].hosUserMobile);
 						localStorage.setItem('defaultInpatient',res.data[0].hosInpatient);
 						localStorage.setItem('defaultStorey',res.data[0].hosStorey);
 						localStorage.setItem('defaultBedNumber',res.data[0].hosBedNumber);
+						localStorage.setItem('defaultDepartment',res.data[0].department);
 					}
 					if (res.code == '500') {
 						layer.msg(res.msg);
 					}
 				}
 			});
+		},
+		selectFunction(ele){
+			let self = this;
+			if(ele == true){
+				let hosInpatient2 = localStorage.getItem("def_hosInpatient");
+				//console.log(hosInpatient2);
+				let hosStorey2 = localStorage.getItem("def_hosStorey");
+				//console.log(hosStorey2);
+				let hosBedNumber2 = localStorage.getItem("def_hosBedNumber");
+				window.top.location.href = "../order/orderLocation.html?hosInpatient2="+hosInpatient2+ "&hosStorey2=" + hosStorey2
+				+"&hosBedNumber2="+hosBedNumber2;
+			}else{
+				let department2 = localStorage.getItem("def_department");
+				//console.log(hosInpatient2);
+				let hosStorey2 = localStorage.getItem("def_hosStorey");
+				//console.log(hosStorey2);
+				window.top.location.href = "../order/workerLocation.html?hosStorey2=" + hosStorey2
+				+"&department2="+department2;
+			}
 		}
 	}
 
@@ -61,14 +78,14 @@ $('body').on('click','.weui-cell.weui-cell_access',function(){
 })
 
 
-$('#addressAdd').click(function() {
-	//$.toast("操作成功");
-	//$.toptip('操作成功', 'success');
-	var hosInpatient2 = localStorage.getItem("def_hosInpatient");
-	//console.log(hosInpatient2);
-	var hosStorey2 = localStorage.getItem("def_hosStorey");
-	//console.log(hosStorey2);
-	var hosBedNumber2 = localStorage.getItem("def_hosBedNumber");
-	window.top.location.href = "../order/orderLocation.html?hosInpatient2="+hosInpatient2+ "&hosStorey2=" + hosStorey2
-	+"&hosBedNumber2="+hosBedNumber2;
-});
+// $('#addressAdd').click(function() {
+// 	//$.toast("操作成功");
+// 	//$.toptip('操作成功', 'success');
+// 	var hosInpatient2 = localStorage.getItem("def_hosInpatient");
+// 	//console.log(hosInpatient2);
+// 	var hosStorey2 = localStorage.getItem("def_hosStorey");
+// 	//console.log(hosStorey2);
+// 	var hosBedNumber2 = localStorage.getItem("def_hosBedNumber");
+// 	window.top.location.href = "../order/orderLocation.html?hosInpatient2="+hosInpatient2+ "&hosStorey2=" + hosStorey2
+// 	+"&hosBedNumber2="+hosBedNumber2;
+// });

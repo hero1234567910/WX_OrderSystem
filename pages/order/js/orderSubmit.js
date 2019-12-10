@@ -16,12 +16,30 @@ var vm = new Vue({
     department: "",
     methodOfPayment: ""
   },
-  mounted() {},
+  mounted() {
+    this.payInit();
+  },
   created() {
     this.getGoodsPrice();
     this.getTime();
   },
   methods: {
+    payInit() {
+      let self = this;
+      let hosInpatient = GetQueryString("hosInpatient");
+      let department = GetQueryString("department");
+      //console.log(department=="");
+      //console.log(hosInpatient=="");
+      if (hosInpatient == "") {
+        self.payWay = "货到付款";
+        self.methodOfPayment = 1;
+        self.department = department;
+      } else if (department == "") {
+        self.payWay = "微信支付";
+        self.department = "";
+        self.methodOfPayment = 0;
+      }
+    },
     getTime() {
       let self = this;
       var now = new Date();
@@ -74,11 +92,22 @@ var vm = new Vue({
     },
     payFunction(ele) {
       let self = this;
-      if (ele == true) {
+      let department = GetQueryString("department");
+      //若存在科室，且状态切换微信支付
+      if (department != "" && ele == true) {
+        $.alert(
+          "您选择的是院内职工地址，若要微信支付请填写患者地址。",
+          "提示",
+          function() {
+            $.closePopup();
+            return;
+          }
+        );
+      } else if (ele == true) {
         $.closePopup();
         self.payWay = "微信支付";
-		self.methodOfPayment = 0;
-		self.department = "";
+        self.methodOfPayment = 0;
+        self.department = "";
       } else {
         $.closePopup();
         self.payWay = "货到付款";
@@ -137,8 +166,6 @@ var vm = new Vue({
   }
 });
 
-$().ready(function() {});
-
 var hosUserName = GetQueryString("hosUserName");
 var hosUserMobile = GetQueryString("hosUserMobile");
 var hosInpatient = GetQueryString("hosInpatient");
@@ -194,20 +221,41 @@ $("#submitOrder").click(function() {
   params["methodOfPayment"] = vm.$data.methodOfPayment;
 
   var array = new Array();
-  if (
-    panNull(params["orderUserGuid"], "用户不能为空") ||
-    panNull(params["consigneeName"], "收货人不能为空") ||
-    panNull(params["consigneeMobile"], "手机号码不能为空") ||
-    panNull(params["consigneeInpatient"], "地址不能为空") ||
-    panNull(params["consigneeStorey"], "地址不能为空") ||
-    panNull(params["consigneeBedNumber"], "地址不能为空") ||
-    panNull(params["reserveTime"], "送达时间不能为空") ||
-    panNull(params["reserveTimeSuffix"], "送达时间不能为空") ||
-    panNull(params["orderMoney"], "订单金额不能为空") ||
-    panNull(params["methodOfPayment"], "请选择支付方式")
-  ) {
-    return;
+  console.log(vm.$data.methodOfPayment);
+
+  if (vm.$data.methodOfPayment == 1) {
+    if (
+      panNull(params["orderUserGuid"], "用户不能为空") ||
+      panNull(params["consigneeName"], "收货人不能为空") ||
+      panNull(params["consigneeMobile"], "手机号码不能为空") ||
+      panNull(params["department"], "科室不能为空") ||
+      panNull(params["consigneeStorey"], "楼层不能为空") ||
+      panNull(params["reserveTime"], "送达时间不能为空") ||
+      panNull(params["reserveTimeSuffix"], "送达时间不能为空") ||
+      panNull(params["orderMoney"], "订单金额不能为空")
+    ) {
+      return;
+    }
   }
+
+  if (vm.$data.methodOfPayment == 0) {
+    if (
+      panNull(params["orderUserGuid"], "用户不能为空") ||
+      panNull(params["consigneeName"], "收货人不能为空") ||
+      panNull(params["consigneeMobile"], "手机号码不能为空") ||
+      panNull(params["consigneeInpatient"], "病区不能为空") ||
+      panNull(params["consigneeStorey"], "楼层不能为空") ||
+      panNull(params["consigneeBedNumber"], "床位号不能为空") ||
+      panNull(params["reserveTime"], "送达时间不能为空") ||
+      panNull(params["reserveTimeSuffix"], "送达时间不能为空") ||
+      panNull(params["orderMoney"], "订单金额不能为空")
+    ) {
+      console.log(params);
+
+      return;
+    }
+  }
+
   $.ajax({
     url: "/wx/common/placeOrder",
     contentType: "application/json;charset=utf-8",
@@ -223,26 +271,25 @@ $("#submitOrder").click(function() {
         var nonceStr = encrypt(res.data.nonceStr);
         var pack = encrypt(res.data.package);
         var paySign = encrypt(res.data.paySign);
-		var timestamp = encrypt(res.data.timeStamp + "");
-		if(vm.$data.methodOfPayment == 0){
-			$.toast("下单成功", function() {
-				location.href =
-				  "../../../../WXOrderSystem/pages/pay/pay.html?appId=" +
-				  appId +
-				  "&nonceStr=" +
-				  nonceStr +
-				  "&pack=" +
-				  pack +
-				  "&paySign=" +
-				  paySign +
-				  "&timeStamp=" +
-				  timestamp;
-			  });
-		}else{
-			location.href =
-				"../../../../WXOrderSystem/pages/notice/cashTodelivey.html"
-		}
-        
+        var timestamp = encrypt(res.data.timeStamp + "");
+        if (vm.$data.methodOfPayment == 0) {
+          $.toast("下单成功", function() {
+            location.href =
+              "../../../../WXOrderSystem/pages/pay/pay.html?appId=" +
+              appId +
+              "&nonceStr=" +
+              nonceStr +
+              "&pack=" +
+              pack +
+              "&paySign=" +
+              paySign +
+              "&timeStamp=" +
+              timestamp;
+          });
+        } else {
+          location.href =
+            "../../../../WXOrderSystem/pages/notice/cashTodelivey.html";
+        }
       }
       if (res.code == "500") {
         $.toast(res.msg, "forbidden");
