@@ -26,18 +26,30 @@ var vm = new Vue({
   methods: {
     payInit() {
       let self = this;
-      let hosInpatient = GetQueryString("hosInpatient");
-      let department = GetQueryString("department");
-      //console.log(department=="");
-      //console.log(hosInpatient=="");
-      if (hosInpatient == "") {
+      let hosInpatient1 = localStorage.getItem("defaultInpatient");
+      let department1 = localStorage.getItem("defaultDepartment");
+      let hosInpatient2 = GetQueryString("hosInpatient");
+      let department2 = GetQueryString("department");
+      console.log(hosInpatient1);
+      console.log(department1);
+      if (hosInpatient1 == "" || hosInpatient1 == "null") {
         self.payWay = "货到付款";
         self.methodOfPayment = 1;
-        self.department = department;
-      } else if (department == "") {
+        self.department = department2;
+      } else if (department1 == "" || department1 == "null") {
         self.payWay = "微信支付";
         self.department = "";
-        self.methodOfPayment = 0;
+        self.methodOfPayment2 = 0;
+      }
+
+      if (hosInpatient2 == "") {
+        self.payWay = "货到付款";
+        self.methodOfPayment = 1;
+        self.department = department2;
+      } else if (department2 == "") {
+        self.payWay = "微信支付";
+        self.department = "";
+        self.methodOfPayment2 = 0;
       }
     },
     getTime() {
@@ -96,7 +108,7 @@ var vm = new Vue({
       //若存在科室，且状态切换微信支付
       if (department != "" && ele == true) {
         $.alert(
-          "您选择的是院内职工地址，若要微信支付请填写患者地址。",
+          "您现在选择的是院内职工地址，若要微信支付请选择在院患者地址。",
           "提示",
           function() {
             $.closePopup();
@@ -221,7 +233,7 @@ $("#submitOrder").click(function() {
   params["methodOfPayment"] = vm.$data.methodOfPayment;
 
   var array = new Array();
-  console.log(vm.$data.methodOfPayment);
+  //console.log(vm.$data.methodOfPayment);
 
   if (vm.$data.methodOfPayment == 1) {
     if (

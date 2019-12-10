@@ -18,7 +18,6 @@
       <a
         class="weui-cell weui-cell_access"
         href="javaScript:;"
-        onclick="addressChange()"
         v-for="item in addressList"
         v-cloak
       >
@@ -29,9 +28,10 @@
 
           <div class="loca-x">
             <p class="p-location">
-              <em id="inpatient">{{item.hosInpatient}}</em
-              ><em id="storey">{{item.hosStorey}}</em
-              ><em id="bedNumber">{{item.hosBedNumber}}</em>
+              <em id="inpatient" v-show="item.hosInpatient != null||item.hosInpatient !=''">{{item.hosInpatient}}</em>
+              <em id="department" v-show="item.department!=null||item.department!=''">{{item.department}}</em>
+              <em id="storey">{{item.hosStorey}}</em>
+              <em id="bedNumber" v-show="item.hosBedNumber!=null||item.hosBedNumber!=''">{{item.hosBedNumber}}</em>
             </p>
           </div>
           <div class="loca-name">

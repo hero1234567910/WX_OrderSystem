@@ -31,10 +31,10 @@ var vm = new Vue({
 				success: function(res) {
 					if (res.code == '0') {
 						self.addressList = res.data;
-						if(res.data[0].department!=null||res.data[0].department!=''){
-							self.departmentShow = true;
-							self.patientShow = false;
-						}
+						// if(res.data[0].department!=null||res.data[0].department!=''){
+						// 	self.departmentShow = true;
+						// 	self.patientShow = false;
+						// }
 						localStorage.setItem('defaultName',res.data[0].hosUserName);
 						localStorage.setItem('defaultMobile',res.data[0].hosUserMobile);
 						localStorage.setItem('defaultInpatient',res.data[0].hosInpatient);

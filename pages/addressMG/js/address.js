@@ -65,6 +65,7 @@ var vm = new Vue({
 });
 
 $('body').on('click','.weui-cell.weui-cell_access',function(){
+	
 	//console.log(this.te)
 	var rowGuid = $(this).children('.weui-cell__bd').children('.loca-name').children('#rowGuid').text().trim();
 	var hosUserName = $(this).children('.weui-cell__bd').children('.loca-name').children('#userName').text().trim();
@@ -72,9 +73,20 @@ $('body').on('click','.weui-cell.weui-cell_access',function(){
 	var hosInpatient = $(this).children('.weui-cell__bd').children('.loca-x').children('.p-location').children('#inpatient').text().trim();
 	var hosStorey = $(this).children('.weui-cell__bd').children('.loca-x').children('.p-location').children('#storey').text().trim();
 	var hosBedNumber = $(this).children('.weui-cell__bd').children('.loca-x').children('.p-location').children('#bedNumber').text().trim();
-	window.top.location.href = "../order/orderLocation.html?hosUserName=" + hosUserName + "&hosUserMobile=" + hosUserMobile +
+	var department = $(this).children('.weui-cell__bd').children('.loca-x').children('.p-location').children('#department').text().trim();
+	console.log(department);
+	
+	if(department==""||department==null){
+		window.top.location.href = "../order/orderLocation.html?hosUserName=" + hosUserName + "&hosUserMobile=" + hosUserMobile +
 		"&hosInpatient=" + hosInpatient +
 		"&hosStorey=" + hosStorey + "&hosBedNumber=" + hosBedNumber + "&rowGuid=" + rowGuid;
+	}else{
+		window.top.location.href = "../order/workerLocation.html?hosUserName=" + hosUserName + "&hosUserMobile=" + hosUserMobile +
+		"&department=" + department +
+		"&hosStorey=" + hosStorey + "&rowGuid=" + rowGuid;
+	}
+
+	
 })
 
 
