@@ -30,16 +30,19 @@ var vm = new Vue({
       let department1 = localStorage.getItem("defaultDepartment");
       let hosInpatient2 = GetQueryString("hosInpatient");
       let department2 = GetQueryString("department");
-      console.log(hosInpatient1);
-      console.log(department1);
-      if (hosInpatient1 == "" || hosInpatient1 == "null") {
+      console.log(hosInpatient1=="null");
+      console.log(hosInpatient1=="");
+      console.log(department1=="null");
+      console.log(department1=="");
+      if (hosInpatient1 == "null") {
         self.payWay = "本院职工";
         self.methodOfPayment = 1;
         self.department = department2;
-      } else if (department1 == "" || department1 == "null") {
+      } 
+      if (department1 == "null") {
         self.payWay = "微信支付";
         self.department = "";
-        self.methodOfPayment2 = 0;
+        self.methodOfPayment = 0;
       }
 
       if (hosInpatient2 == "") {
@@ -49,7 +52,7 @@ var vm = new Vue({
       } else if (department2 == "") {
         self.payWay = "微信支付";
         self.department = "";
-        self.methodOfPayment2 = 0;
+        self.methodOfPayment = 0;
       }
     },
     getTime() {
@@ -262,12 +265,12 @@ $("#submitOrder").click(function() {
       panNull(params["reserveTimeSuffix"], "送达时间不能为空") ||
       panNull(params["orderMoney"], "订单金额不能为空")
     ) {
-      console.log(params);
+      
 
       return;
     }
   }
-
+  console.log(params);
   $.ajax({
     url: "/wx/common/placeOrder",
     contentType: "application/json;charset=utf-8",
