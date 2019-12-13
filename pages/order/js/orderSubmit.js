@@ -202,6 +202,7 @@ var hosBedNumber = GetQueryString("hosBedNumber");
 // }
 
 $("#submitOrder").click(function() {
+  
   //交互，提交订单，发起微信统一订单
   var params = {};
   //准备参数
@@ -266,11 +267,14 @@ $("#submitOrder").click(function() {
       panNull(params["orderMoney"], "订单金额不能为空")
     ) {
       
-
       return;
     }
   }
-  console.log(params);
+  if(vm.$data.orderPrice<10){
+    $.alert("订单金额不足10元无法配送","提示",function() {
+    })
+    return;
+  }
   $.ajax({
     url: "/wx/common/placeOrder",
     contentType: "application/json;charset=utf-8",
