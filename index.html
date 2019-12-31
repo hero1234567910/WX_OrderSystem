@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-	<title>首页</title>
-	<link rel="stylesheet" href="lib/weui.min.css" />
-	<link rel="stylesheet" href="css/jquery-weui.min.css" />
-	<link rel="stylesheet" href="css/local.css" />
-	<!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no"
+    />
+    <title>首页</title>
+    <link rel="stylesheet" href="lib/weui.min.css" />
+    <link rel="stylesheet" href="css/jquery-weui.min.css" />
+    <link rel="stylesheet" href="css/local.css" />
+    <!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 		<script type="text/javascript">
 			//通过config接口注入权限验证配置
 			wx.config({
@@ -24,113 +26,146 @@
 				// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后
 			});
 		</script>-->
-	<style>
-		.submit-button {
-			position: absolute;
-			top: 45px;
-			width: 100%;
-			margin-left: 0;
-			margin-right: 0;
+    <style>
+      .submit-button {
+        position: absolute;
+        top: 45px;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="swiper-head">
+      <div
+        class="swiper-container"
+        data-space-between="10"
+        data-pagination=".swiper-pagination"
+        data-autoplay="2000"
+      >
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="img/0801.png" alt="" /></div>
+          <div class="swiper-slide"><img src="img/0801.png" alt="" /></div>
+          <div class="swiper-slide"><img src="img/0801.png" alt="" /></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    <div style="padding: 5px 10px;">
+      <div class="notice-left">
+        <img
+          src="img/通知公告.png"
+          style="width: 95%;vertical-align: middle;"
+        />
+      </div>
+      <div class="notice-middle" style="width: 60%;">
+        <div
+          id="s"
+          style="position:relative; white-space:nowrap; overflow:hidden; height:22px;"
+        >
+          <div id="noticeList" style="position:absolute; top:0; height:20px;">
+            <span id="ms">食堂订餐</span>
+          </div>
+        </div>
+      </div>
+      <div class="notice-right">
+        更多
+      </div>
+    </div>
+
+    <div
+      style="clear: both;background-color: #efeff4;height: 100%;position: relative;"
+    >
+      <div class="weui-panel__hd">选择订餐时间</div>
+      <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+          <!--<div class="weui-cell__hd"><label for="" class="weui-label">日期</label></div>-->
+          <div class="weui-cell__bd">
+            <input class="weui-input" id="we-date" placeholder="请选择日期" />
+          </div>
+        </div>
+
+        <div class="weui-cells">
+          <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd">
+              <input
+                class="weui-select"
+                id="select1"
+                placeholder="请选择饭点"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="submit-button">
+        <a
+          href="javascript:;"
+          class="weui-btn weui-btn_primary"
+          onclick="toMain()"
+          >开始点餐</a
+        >
+      </div>
+    </div>
+    <script type="text/javascript" src="lib/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="js/jquery-weui.js"></script>
+    <script
+      type="text/javascript"
+      src="js/swiper.min.js"
+      charset="utf-8"
+    ></script>
+    <script type="text/javascript" src="js/textScroll.js"></script>
+    <script type="text/javascript" src="lib/fastclick.js"></script>
+    <script type="text/javascript" src="js/local.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+      var mySwiper = new Swiper(".swiper-container", {
+        pagination: ".swiper-pagination",
+        loop: true,
+        autoplay: 3000
+      });
+      //横向滚动
+      $("#s").textScroll();
+      //日期
+      var t = new Date();
+      var t2 = new Date();
+      var t_s = t.getTime();
+      t.setTime(t_s + 1000 * 60 * 60 * 24);
+      t2.setTime(t_s);
+      var tomDate = dateToString();
+      console.log(tomDate);
+
+      var array = new Array();
+      array.push(tomDate);
+      console.log(array);
+      $("#we-date").calendar({
+        value: array,
+        minDate: t2,
+        maxDate: t
+      });
+      //输出明天的日期
+      function dateToString() {
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = (date.getMonth() + 1).toString();
+        var day = (date.getDate() + 1).toString();
+        if (month.length == 1) {
+          month = "0" + month;
+        }
+        if (day.length == 1) {
+          day = "0" + day;
 		}
-	</style>
-</head>
-
-<body>
-	<div class="swiper-head">
-		<div class="swiper-container" data-space-between="10" data-pagination=".swiper-pagination" data-autoplay="2000">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide"><img src="img/0801.png" alt=""></div>
-				<div class="swiper-slide"><img src="img/0801.png" alt=""></div>
-				<div class="swiper-slide"><img src="img/0801.png" alt=""></div>
-			</div>
-			<div class="swiper-pagination"></div>
-		</div>
-
-	</div>
-	<div style="padding: 5px 10px;">
-		<div class="notice-left">
-			<img src="img/通知公告.png" style="width: 95%;vertical-align: middle;" />
-		</div>
-		<div class="notice-middle" style="width: 60%;">
-			<div id="s" style="position:relative; white-space:nowrap; overflow:hidden; height:22px;">
-				<div id="noticeList" style="position:absolute; top:0; height:20px;"><span id="ms">食堂订餐</span></div>
-			</div>
-		</div>
-		<div class="notice-right">
-			更多
-		</div>
-	</div>
-
-	<div style="clear: both;background-color: #efeff4;height: 100%;position: relative;">
-		<div class="weui-panel__hd">选择订餐时间</div>
-		<div class="weui-cells weui-cells_form">
-			<div class="weui-cell">
-				<!--<div class="weui-cell__hd"><label for="" class="weui-label">日期</label></div>-->
-				<div class="weui-cell__bd">
-					<input class="weui-input" id="we-date" placeholder="请选择日期">
-				</div>
-			</div>
-
-			<div class="weui-cells">
-				<div class="weui-cell weui-cell_select">
-					<div class="weui-cell__bd">
-						<input class="weui-select" id="select1" placeholder="请选择饭点" />
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="submit-button">
-			<a href="javascript:;" class="weui-btn weui-btn_primary" onclick="toMain()">开始点餐</a>
-		</div>
-	</div>
-	<script type="text/javascript" src="lib/jquery-2.1.4.js"></script>
-	<script type="text/javascript" src="js/jquery-weui.js"></script>
-	<script type="text/javascript" src="js/swiper.min.js" charset="utf-8"></script>
-	<script type="text/javascript" src="js/textScroll.js"></script>
-	<script type="text/javascript" src="lib/fastclick.js"></script>
-	<script type="text/javascript" src="js/local.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
-	<script>
-		var mySwiper = new Swiper('.swiper-container', {
-			pagination: '.swiper-pagination',
-			loop: true,
-			autoplay: 3000
-		})
-		//横向滚动
-		$("#s").textScroll();
-		//日期
-		var t = new Date();
-		var t2 = new Date();
-		var t_s = t.getTime();
-		t.setTime(t_s + 1000 * 60 * 60 * 24);
-		t2.setTime(t_s);
-		var tomDate = dateToString();
-		console.log(tomDate);
+		//跨年判断
+        if (month == "12" && day == "32") {
+			year = year + 1;
+			month = "01";
+			day = "01";
+        }
+		var dateTime = year + "-" + month + "-" + day;
 		
-		var array = new Array();
-		array.push(tomDate)
-		console.log(array)
-		$("#we-date").calendar({
-			value:array,
-			minDate: t2,
-			maxDate: t
-		});
-		//输出明天的日期
-		function dateToString() {
-			var date = new Date();
-			var year = date.getFullYear();
-			var month = (date.getMonth() + 1).toString();
-			var day = (date.getDate() + 1).toString();
-			if (month.length == 1) {
-				month = "0" + month;
-			}
-			if (day.length == 1) {
-				day = "0" + day;
-			}
-			var dateTime = year + "-" + month + "-" + day;
-			return dateTime;
-		}
-	</script>
-</body>
-
+        return dateTime;
+      }
+    </script>
+  </body>
 </html>
